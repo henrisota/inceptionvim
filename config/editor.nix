@@ -300,8 +300,8 @@
     };
 
     hardtime = {
-      enable = true;
-      enabled = true;
+      enable = false;
+      enabled = false;
 
       allowDifferentKey = false;
       disableMouse = false;
