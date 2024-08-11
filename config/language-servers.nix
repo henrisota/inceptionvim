@@ -113,7 +113,7 @@
       enable = true;
 
       autoCmd = {
-        event = ["BufEnter" "BufWritePost" "InsertLeave"];
+        event = ["BufWritePost"];
       };
     };
 
