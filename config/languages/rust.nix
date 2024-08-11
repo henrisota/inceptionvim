@@ -36,7 +36,7 @@
     };
 
     rustaceanvim = {
-      enable = true;
+      enable = false;
       settings = {
         dap.autoload_configurations = true;
         server = {
