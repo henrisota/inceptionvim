@@ -240,9 +240,12 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>g" = "󰊢 Git";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>g";
+          group = " Git";
+        }
+      ];
     };
   };
 }

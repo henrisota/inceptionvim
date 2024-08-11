@@ -73,87 +73,69 @@
     which-key = {
       enable = true;
 
-      hidden = [
-        "<silent>"
-        "<cmd>"
-        "<Cmd>"
-        "<CR>"
-        "^:"
-        "^ "
-        "^call "
-        "^lua "
-      ];
-      ignoreMissing = false;
+      settings = {
+        hidden = [
+          "<silent>"
+          "<cmd>"
+          "<Cmd>"
+          "<CR>"
+          "^:"
+          "^ "
+          "^call "
+          "^lua "
+        ];
+        ignoreMissing = false;
 
-      icons = {
-        breadcrumb = "»";
-        group = "+";
-        separator = "➜";
-      };
-
-      layout = {
-        align = "left";
-        height = {
-          min = 4;
-          max = 25;
+        icons = {
+          breadcrumb = "»";
+          group = "+";
+          separator = "➜";
         };
-        width = {
-          min = 20;
-          max = 50;
+
+        layout = {
+          align = "left";
+          height = {
+            min = 4;
+            max = 25;
+          };
+          width = {
+            min = 20;
+            max = 50;
+          };
+          spacing = 3;
         };
-        spacing = 3;
-      };
-
-      motions = {
-        count = true;
-      };
-
-      plugins = {
-        marks = true;
-        registers = true;
-        presets = {
-          g = true;
-          motions = true;
-          nav = true;
-          operators = true;
-          textObjects = true;
-          windows = true;
-          z = true;
+        plugins = {
+          motions = {
+            count = true;
+          };
+          presets = {
+            g = true;
+            motions = true;
+            nav = true;
+            operators = true;
+            textObjects = true;
+            windows = true;
+            z = true;
+          };
+          registers = true;
+          spelling = {
+            enabled = false;
+            suggestions = 10;
+          };
         };
-        spelling = {
-          enabled = false;
-          suggestions = 10;
+        operators = {
+          gc = "Comments";
         };
-      };
-
-      operators = {
-        gc = "Comments";
-      };
-
-      showKeys = true;
-      triggers = "auto";
-
-      triggersBlackList = {
-        i = ["j" "k"];
-        v = ["j" "k"];
-      };
-      triggersNoWait = ["" "'" "g" "g'" "\"" "<c-r>" "z="];
-
-      window = {
-        margin = {
-          bottom = 1;
-          left = 0;
-          right = 0;
-          top = 1;
+        show_keys = true;
+        triggers_no_wait = ["" "'" "g" "g'" "\"" "<c-r>" "z="];
+        triggers_black_list = {
+          i = ["j" "k"];
+          v = ["j" "k"];
         };
-        padding = {
-          bottom = 1;
-          left = 2;
-          right = 2;
-          top = 1;
+        win = {
+          padding = [1 2];
+          wo.winblend = 0;
         };
-        position = "bottom";
-        winblend = 0;
       };
     };
   };
