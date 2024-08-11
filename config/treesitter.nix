@@ -8,18 +8,20 @@
     treesitter = {
       enable = true;
 
-      ensureInstalled = "all";
       folding = false;
-      indent = false;
 
       nixvimInjections = true;
 
-      incrementalSelection = {
-        enable = true;
-        keymaps = {
-          initSelection = "<C-space>";
-          nodeIncremental = "<C-space>";
-          nodeDecremental = "<bs>";
+      settings = {
+        ensure_installed = "all";
+        indent = {
+          enable = true;
+        };
+        incremental_selection = {
+          enable = true;
+          init_selection = "<C-space>";
+          node_incremental = "<C-space>";
+          node_decremental = "<bs>";
         };
       };
     };

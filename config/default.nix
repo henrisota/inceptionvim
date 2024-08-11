@@ -45,7 +45,8 @@
     ./languages/python.nix
     ./languages/rust.nix
     ./languages/sh.nix
-    ./languages/sql.nix
+    # TODO: Include again once https://github.com/NixOS/nixpkgs/pull/332824 is merged
+    # ./languages/sql.nix
     ./languages/terraform.nix
     ./languages/toml.nix
     ./languages/typescript.nix

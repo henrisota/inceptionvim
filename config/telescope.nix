@@ -73,9 +73,12 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>f" = " Finder";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>f";
+          group = " Finder";
+        }
+      ];
     };
   };
 }

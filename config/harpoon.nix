@@ -56,18 +56,14 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>h" = {
-          name = "󱡁 Harpoon";
-
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>h";
+          group = "󱡁 Harpoon";
           a = "Add mark";
           e = "Toggle Quick Menu";
-          j = "1";
-          k = "2";
-          l = "3";
-          m = "4";
-        };
-      };
+        }
+      ];
     };
   };
 }

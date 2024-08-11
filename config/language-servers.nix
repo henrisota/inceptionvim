@@ -123,9 +123,12 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>l" = " LSP";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>l";
+          group = " LSP";
+        }
+      ];
     };
   };
 }

@@ -275,10 +275,11 @@
   plugins = {
     better-escape = {
       enable = true;
-
-      clearEmptyLines = false;
-      keys = "<Esc>";
-      mapping = ["jj"];
+      settings = {
+        mapping = {
+          j.j = "<Esc>";
+        };
+      };
     };
 
     comment = {
@@ -898,12 +899,24 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>c" = " Create";
-        "<leader>m" = "󰍥 Messages";
-        "<leader>x" = " Trouble";
-        "z" = " Folds";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>c";
+          group = " Create";
+        }
+        {
+          __unkeyed-1 = "<leader>m";
+          group = " Messages";
+        }
+        {
+          __unkeyed-1 = "<leader>x";
+          group = " Trouble";
+        }
+        {
+          __unkeyed-1 = "z";
+          group = " Folds";
+        }
+      ];
     };
 
     wtf = {

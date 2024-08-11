@@ -80,8 +80,13 @@
       };
     };
 
-    which-key.registrations = {
-      "<leader>d" = " Debug";
+    which-key = lib.mkIf config.plugins.which-key.enable {
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>d";
+          group = " Debug";
+        }
+      ];
     };
   };
 }

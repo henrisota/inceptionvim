@@ -42,9 +42,12 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      registrations = {
-        "<leader>t" = " Terminal";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>t";
+          group = "󱡁 Terminal";
+        }
+      ];
     };
   };
 }
