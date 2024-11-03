@@ -853,7 +853,6 @@
 
         auto_close = false;
         auto_fold = false;
-        auto_jump = ["lsp_definitions"];
         auto_open = false;
         auto_preview = false;
         cycle_results = false;
@@ -862,7 +861,6 @@
         fold_open = "";
 
         group = true;
-        icons = true;
         include_declaration = ["lsp_references" "lsp_implementations" "lsp_definitions"];
         indent_lines = true;
         mode = "workspace_diagnostics";
