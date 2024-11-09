@@ -10,7 +10,7 @@
     nix-develop.enable = true;
 
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         nix = ["alejandra"];
       };
     };
@@ -23,7 +23,7 @@
 
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
-        nil-ls = {
+        nil_ls = {
           enable = true;
         };
       };

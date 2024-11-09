@@ -6,13 +6,13 @@
 }: let
   lsp-progress = pkgs.vimUtils.buildVimPlugin {
     name = "lsp-progress";
-    version = "unstable-2024-05-20";
-    # https://github.com/linrongbin16/lsp-progress.nvim/tree/55a04895ea20c365b670051a3128265d43bdfa3d
+    version = "unstable-2024-07-15";
+    # https://github.com/linrongbin16/lsp-progress.nvim/tree/d5f4d28efe75ce636bfbe271eb45f39689765aab
     src = pkgs.fetchFromGitHub {
       owner = "linrongbin16";
       repo = "lsp-progress.nvim";
-      rev = "55a04895ea20c365b670051a3128265d43bdfa3d";
-      hash = "sha256-lemswtWOf6O96YkUnIFZIsuZPO4oUTNpZRItsl/GSnU=";
+      rev = "d5f4d28efe75ce636bfbe271eb45f39689765aab";
+      hash = "sha256-OafRT5AnxRTOh7MYofRFjti0+pobKQihymZs/kr5w0A=";
     };
   };
 in {
@@ -95,227 +95,208 @@ in {
     lualine = {
       enable = true;
 
-      alwaysDivideMiddle = true;
-      disabledFiletypes = {
-        statusline =
-          [
-            "checkhealth"
-            "help"
-            "netrw"
-          ]
-          ++ (lib.optional config.plugins.alpha.enable "alpha")
-          ++ (lib.optional config.plugins.dashboard.enable "dashboard")
-          ++ (lib.optional config.plugins.diffview.enable "Diffview*")
-          ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
+      settings = {
+        always_divide_middle = true;
+        disabled_filetypes = {
+          statusline =
+            [
+              "checkhealth"
+              "help"
+              "netrw"
+            ]
+            ++ (lib.optional config.plugins.alpha.enable "alpha")
+            ++ (lib.optional config.plugins.dashboard.enable "dashboard")
+            ++ (lib.optional config.plugins.diffview.enable "Diffview*")
+            ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
+            ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
+            ++ (lib.optional config.plugins.noice.enable "noice")
+            ++ (lib.optional config.plugins.notify.enable "notify")
+            ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
+            ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
+            ++ (lib.optional config.plugins.undotree.enable "undotree");
+
+          winbar =
+            [
+              "checkhealth"
+              "help"
+              "netrw"
+            ]
+            ++ (lib.optional config.plugins.alpha.enable "alpha")
+            ++ (lib.optional config.plugins.dashboard.enable "dashboard")
+            ++ (lib.optional config.plugins.diffview.enable "Diffview*")
+            ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
+            ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
+            ++ (lib.optional config.plugins.noice.enable "noice")
+            ++ (lib.optional config.plugins.notify.enable "notify")
+            ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
+            ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
+            ++ (lib.optional config.plugins.undotree.enable "undotree");
+        };
+
+        globalstatus = true;
+        icons_enabled = true;
+        refresh = {
+          statusline = 1000;
+          tabline = 1000;
+          winbar = 1000;
+        };
+
+        component_separators = {
+          left = "";
+          right = "";
+        };
+        section_separators = {
+          left = "▌";
+          right = "▐";
+        };
+
+        extensions =
+          # https://github.com/nvim-lualine/lualine.nvim/tree/master/lua/lualine/extensions
+          ["fzf"]
+          ++ (lib.optional config.plugins.dap.enable "nvim-dap-ui")
           ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-          ++ (lib.optional config.plugins.noice.enable "noice")
-          ++ (lib.optional config.plugins.notify.enable "notify")
-          ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
           ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-          ++ (lib.optional config.plugins.undotree.enable "undotree");
+          ++ (lib.optional config.plugins.trouble.enable "trouble");
 
-        winbar =
-          [
-            "checkhealth"
-            "help"
-            "netrw"
-          ]
-          ++ (lib.optional config.plugins.alpha.enable "alpha")
-          ++ (lib.optional config.plugins.dashboard.enable "dashboard")
-          ++ (lib.optional config.plugins.diffview.enable "Diffview*")
-          ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
-          ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-          ++ (lib.optional config.plugins.noice.enable "noice")
-          ++ (lib.optional config.plugins.notify.enable "notify")
-          ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
-          ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-          ++ (lib.optional config.plugins.undotree.enable "undotree");
-      };
-      globalstatus = true;
-      iconsEnabled = true;
-      refresh = {
-        statusline = 1000;
-        tabline = 1000;
-        winbar = 1000;
-      };
+        sections = {
+          lualine_a = [
+            "mode"
+          ];
 
-      componentSeparators = {
-        left = "";
-        right = "";
-      };
-      sectionSeparators = {
-        left = "▌";
-        right = "▐";
-      };
+          lualine_b = [
+            "branch"
+            "diff"
+          ];
 
-      extensions =
-        # https://github.com/nvim-lualine/lualine.nvim/tree/master/lua/lualine/extensions
-        ["fzf"]
-        ++ (lib.optional config.plugins.dap.enable "nvim-dap-ui")
-        ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-        ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-        ++ (lib.optional config.plugins.trouble.enable "trouble");
-
-      sections = {
-        lualine_a = [
-          "mode"
-        ];
-
-        lualine_b = [
-          "branch"
-          "diff"
-        ];
-
-        lualine_c =
-          [
-            {
-              name = "diagnostics";
-            }
-            {
-              name = "filename";
-            }
-            {
-              name = "lsp_progress";
-              fmt = ''
-                function()
-                 return require("lsp-progress").progress()
-                end
-              '';
-            }
-          ]
-          ++ (
-            lib.optional config.plugins.lint.enable
-            {
-              name = "lint_progress";
-              fmt = ''
-                function()
-                  local linters = require("lint").get_running()
-                  if #linters == 0 then
-                    return "󰦕"
+          lualine_c =
+            [
+              "diagnostics"
+              "filename"
+              {
+                fmt = ''
+                  function()
+                   return require("lsp-progress").progress()
                   end
-                  return "󱉶 " .. table.concat(linters, ", ")
+                '';
+              }
+            ]
+            ++ (
+              lib.optional config.plugins.lint.enable
+              {
+                fmt = ''
+                  function()
+                    local linters = require("lint").get_running()
+                    if #linters == 0 then
+                      return "󰦕"
+                    end
+                    return "󱉶 " .. table.concat(linters, ", ")
+                  end
+                '';
+              }
+            );
+
+          lualine_x =
+            (lib.optional config.plugins.noice.enable {
+              fmt = ''
+                function()
+                  if package.loaded["noice"] and require("noice").api.status.mode.has() then
+                    return require("noice").api.status.mode.get()
+                  end
+                  return ""
                 end
               '';
-            }
-          );
-
-        lualine_x =
-          (lib.optional config.plugins.noice.enable {
-            name = "@recording_messages";
-            fmt = ''
-              function()
-                if package.loaded["noice"] and require("noice").api.status.mode.has() then
-                  return require("noice").api.status.mode.get()
+            })
+            ++ (lib.optional config.plugins.better-escape.enable {
+              fmt = ''
+                function()
+                  local ok, m = pcall(require, 'better_escape')
+                  return ok and m.waiting and '✺' or ""
                 end
-                return ""
-              end
-            '';
-          })
-          ++ (lib.optional config.plugins.better-escape.enable {
-            name = "escape_status";
-            fmt = ''
-              function()
-                local ok, m = pcall(require, 'better_escape')
-                return ok and m.waiting and '✺' or ""
-              end
-            '';
-          })
-          ++ [
-            {
-              name = "filetype";
-              extraConfig = {
-                icon_only = false;
-                colored = false;
-                separator = "";
+              '';
+            })
+            ++ [
+              {
                 padding = {
                   left = 0;
                   right = 0;
                 };
-              };
-            }
+                separator = {
+                  left = "";
+                  right = "";
+                };
+              }
+              "fileformat"
+              "encoding"
+            ];
+
+          lualine_y = [
             {
-              name = "fileformat";
-            }
-            {
-              name = "encoding";
+              fmt = ''
+                function()
+                 return ""
+                end,
+              '';
             }
           ];
 
-        lualine_y = [
-          {
-            name = "empty";
-            fmt = ''
-              function()
-               return ""
-              end,
-            '';
-          }
-        ];
-
-        lualine_z = [
-          {
-            name = "location";
-            fmt = ''
-              function()
-                return "Ln %l, Col %c"
-              end
-            '';
-          }
-        ];
-      };
-
-      inactiveSections = {
-        lualine_a = [];
-
-        lualine_b = [];
-
-        lualine_c = [
-          "filename"
-        ];
-
-        lualine_x = [
-          "location"
-        ];
-
-        lualine_y = [];
-
-        lualine_z = [];
-      };
-
-      tabline = {};
-
-      winbar = {
-        lualine_c =
-          [
+          lualine_z = [
             {
-              name = "empty";
               fmt = ''
                 function()
-                 return " "
-                end,
+                  return "Ln %l, Col %c"
+                end
               '';
             }
-          ]
-          ++ (lib.optional config.plugins.navic.enable {
-            name = "navic";
-          });
-      };
+          ];
+        };
 
-      inactiveWinbar = {
-        lualine_c =
-          [
-            {
-              name = "empty";
-              fmt = ''
-                function()
-                 return " "
-                end,
-              '';
-            }
-          ]
-          ++ (lib.optional config.plugins.navic.enable {
-            name = "navic";
-          });
+        inactive_sections = {
+          lualine_a = [];
+
+          lualine_b = [];
+
+          lualine_c = [
+            "filename"
+          ];
+
+          lualine_x = [
+            "location"
+          ];
+
+          lualine_y = [];
+
+          lualine_z = [];
+        };
+
+        tabline = {};
+
+        winbar = {
+          lualine_c =
+            [
+              {
+                fmt = ''
+                  function()
+                   return " "
+                  end,
+                '';
+              }
+            ]
+            ++ (lib.optional config.plugins.navic.enable "navic");
+        };
+
+        inactive_winbar = {
+          lualine_c =
+            [
+              {
+                fmt = ''
+                  function()
+                   return " "
+                  end,
+                '';
+              }
+            ]
+            ++ (lib.optional config.plugins.navic.enable "navic");
+        };
       };
     };
   };

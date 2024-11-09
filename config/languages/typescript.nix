@@ -6,7 +6,7 @@
 }: {
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         typescript = [["prettierd" "prettier"]];
       };
     };
@@ -22,7 +22,7 @@
         eslint = {
           enable = true;
         };
-        tsserver = {
+        ts_ls = {
           enable = true;
         };
       };

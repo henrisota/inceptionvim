@@ -6,7 +6,7 @@
 }: {
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         lua = ["stylua"];
       };
     };
@@ -24,7 +24,7 @@
 
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
-        lua-ls = {
+        lua_ls = {
           enable = true;
         };
       };
