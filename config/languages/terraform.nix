@@ -6,7 +6,7 @@
 }: {
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         terraform-vars = ["terraform_fmt"];
         terraform = ["terraform_fmt"];
       };

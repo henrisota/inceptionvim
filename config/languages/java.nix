@@ -6,7 +6,7 @@
 }: {
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         java = ["google-java-format"];
       };
     };
@@ -19,7 +19,7 @@
 
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
-        java-language-server = {
+        java_language_server = {
           enable = true;
         };
       };

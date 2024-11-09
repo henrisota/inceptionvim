@@ -7,7 +7,7 @@
   plugins = {
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
-        helm-ls = {
+        helm_ls = {
           enable = true;
         };
       };

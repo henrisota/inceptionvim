@@ -302,84 +302,87 @@
 
     hardtime = {
       enable = false;
-      enabled = false;
 
-      allowDifferentKey = false;
-      disableMouse = false;
+      settings = {
+        enabled = false;
 
-      disabledFiletypes =
-        [
-          "checkhealth"
-          "help"
-          "netrw"
-        ]
-        ++ (lib.optional config.plugins.alpha.enable "alpha")
-        ++ (lib.optional config.plugins.dashboard.enable "dashboard")
-        ++ (lib.optional config.plugins.diffview.enable "Diffview*")
-        ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
-        ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-        ++ (lib.optional config.plugins.neotest.enable "neotest")
-        ++ (lib.optional config.plugins.noice.enable "noice")
-        ++ (lib.optional config.plugins.notify.enable "notify")
-        ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
-        ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-        ++ (lib.optionals config.plugins.trouble.enable ["trouble" "Trouble"])
-        ++ (lib.optional config.plugins.undotree.enable "undotree");
+        allow_different_key = false;
+        disable_mouse = false;
 
-      disabledKeys = {
-        "<Up>" = ["" "i"];
-        "<Down>" = ["" "i"];
-        "<Left>" = ["" "i"];
-        "<Right>" = ["" "i"];
+        disabled_filetypes =
+          [
+            "checkhealth"
+            "help"
+            "netrw"
+          ]
+          ++ (lib.optional config.plugins.alpha.enable "alpha")
+          ++ (lib.optional config.plugins.dashboard.enable "dashboard")
+          ++ (lib.optional config.plugins.diffview.enable "Diffview*")
+          ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
+          ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
+          ++ (lib.optional config.plugins.neotest.enable "neotest")
+          ++ (lib.optional config.plugins.noice.enable "noice")
+          ++ (lib.optional config.plugins.notify.enable "notify")
+          ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
+          ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
+          ++ (lib.optionals config.plugins.trouble.enable ["trouble" "Trouble"])
+          ++ (lib.optional config.plugins.undotree.enable "undotree");
+
+        disabled_keys = {
+          "<Up>" = ["" "i"];
+          "<Down>" = ["" "i"];
+          "<Left>" = ["" "i"];
+          "<Right>" = ["" "i"];
+        };
+        hint = true;
+
+        max_count = 4;
+        max_time = 1000;
+        notification = true;
+
+        resetting_keys = {
+          "1" = ["n" "x"];
+          "2" = ["n" "x"];
+          "3" = ["n" "x"];
+          "4" = ["n" "x"];
+          "5" = ["n" "x"];
+          "6" = ["n" "x"];
+          "7" = ["n" "x"];
+          "8" = ["n" "x"];
+          "9" = ["n" "x"];
+          "c" = ["n"];
+          "C" = ["n"];
+          "d" = ["n"];
+          "x" = ["n"];
+          "X" = ["n"];
+          "y" = ["n"];
+          "Y" = ["n"];
+          "p" = ["n"];
+          "P" = ["n"];
+          "." = ["n"];
+          "=" = ["n"];
+          "<" = ["n"];
+          ">" = ["n"];
+          "~" = ["n"];
+        };
+
+        restricted_keys = {
+          # "h" = ["n" "x"];
+          # "j" = ["n" "x"];
+          # "k" = ["n" "x"];
+          # "l" = ["n" "x"];
+          "-" = ["n" "x"];
+          "+" = ["n" "x"];
+          "gj" = ["n" "x"];
+          "gk" = ["n" "x"];
+          "<CR>" = ["n" "x"];
+          "<C-M>" = ["n" "x"];
+          "<C-N>" = ["n" "x"];
+          "<C-P>" = ["n" "x"];
+        };
+
+        restriction_mode = "block";
       };
-      hint = true;
-
-      maxCount = 4;
-      maxTime = 1000;
-      notification = true;
-
-      resettingKeys = {
-        "1" = ["n" "x"];
-        "2" = ["n" "x"];
-        "3" = ["n" "x"];
-        "4" = ["n" "x"];
-        "5" = ["n" "x"];
-        "6" = ["n" "x"];
-        "7" = ["n" "x"];
-        "8" = ["n" "x"];
-        "9" = ["n" "x"];
-        "c" = ["n"];
-        "C" = ["n"];
-        "d" = ["n"];
-        "x" = ["n"];
-        "X" = ["n"];
-        "y" = ["n"];
-        "Y" = ["n"];
-        "p" = ["n"];
-        "P" = ["n"];
-        "." = ["n"];
-        "=" = ["n"];
-        "<" = ["n"];
-        ">" = ["n"];
-        "~" = ["n"];
-      };
-
-      restrictedKeys = {
-        # "h" = ["n" "x"];
-        # "j" = ["n" "x"];
-        # "k" = ["n" "x"];
-        # "l" = ["n" "x"];
-        "-" = ["n" "x"];
-        "+" = ["n" "x"];
-        "gj" = ["n" "x"];
-        "gk" = ["n" "x"];
-        "<CR>" = ["n" "x"];
-        "<C-M>" = ["n" "x"];
-        "<C-N>" = ["n" "x"];
-        "<C-P>" = ["n" "x"];
-      };
-
-      restrictionMode = "block";
     };
 
     illuminate = {
@@ -479,18 +482,21 @@
 
     navic = {
       enable = true;
-      click = true;
-      depthLimit = 0;
-      depthLimitIndicator = "..";
-      highlight = false;
-      lazyUpdateContext = false;
 
-      lsp = {
-        autoAttach = true;
+      settings = {
+        click = true;
+        depth_limit = 0;
+        depth_limit_indicator = "..";
+        highlight = false;
+        lazy_update_context = false;
+
+        lsp = {
+          auto_attach = true;
+        };
+
+        safe_output = true;
+        separator = " > ";
       };
-
-      safeOutput = true;
-      separator = " > ";
     };
 
     neogen = {
@@ -528,249 +534,254 @@
     noice = {
       enable = true;
 
-      cmdline = {
-        enabled = true;
-        view = "cmdline_popup";
-        format = {
-          cmdline = {
-            pattern = "^:";
-            icon = "";
-            lang = "vim";
-            opts = {
-              border = {
-                text = {
-                  top = "Command";
+      settings = {
+        cmdline = {
+          enabled = true;
+          view = "cmdline_popup";
+          format = {
+            cmdline = {
+              pattern = "^:";
+              icon = "";
+              lang = "vim";
+              opts = {
+                border = {
+                  text = {
+                    top = "Command";
+                  };
                 };
               };
             };
+            search_down = {
+              kind = "search";
+              pattern = "^/";
+              icon = " ";
+              lang = "regex";
+            };
+            search_up = {
+              kind = "search";
+              pattern = "^%?";
+              icon = " ";
+              lang = "regex";
+            };
+            shell = {
+              pattern = "^:!";
+              icon = " ";
+              lang = "bash";
+            };
+            filter = {
+              pattern = "^:%s!%s+";
+              icon = "";
+              lang = "bash";
+            };
+            lua = {
+              pattern = "^:%s*lua%s+";
+              icon = "";
+              lang = "lua";
+            };
+            help = {
+              pattern = "^:%s*he?l?p?%s+";
+              icon = "";
+            };
+            open = {
+              pattern = "^:%s*e%s+";
+              icon = "";
+            };
+            input = {};
           };
-          search_down = {
-            kind = "search";
-            pattern = "^/";
-            icon = " ";
-            lang = "regex";
-          };
-          search_up = {
-            kind = "search";
-            pattern = "^%?";
-            icon = " ";
-            lang = "regex";
-          };
-          shell = {
-            pattern = "^:!";
-            icon = " ";
-            lang = "bash";
-          };
-          filter = {
-            pattern = "^:%s!%s+";
-            icon = "";
-            lang = "bash";
-          };
-          lua = {
-            pattern = "^:%s*lua%s+";
-            icon = "";
-            lang = "lua";
-          };
-          help = {
-            pattern = "^:%s*he?l?p?%s+";
-            icon = "";
-          };
-          open = {
-            pattern = "^:%s*e%s+";
-            icon = "";
-          };
-          input = {};
         };
-      };
 
-      commands = {
-        history = {
-          view = "split";
-          opts = {
-            enter = true;
-            format = "details";
+        commands = {
+          history = {
+            view = "split";
+            opts = {
+              enter = true;
+              format = "details";
+            };
+            filter = {
+              any = [
+                {
+                  event = "notify";
+                }
+                {
+                  error = true;
+                }
+                {
+                  warning = true;
+                }
+                {
+                  event = "msg_show";
+                  kind = [""];
+                }
+                {
+                  event = "lsp";
+                  kind = "message";
+                }
+              ];
+            };
           };
-          filter = {
-            any = [
-              {
-                event = "notify";
-              }
-              {
-                error = true;
-              }
-              {
-                warning = true;
-              }
-              {
-                event = "msg_show";
-                kind = [""];
-              }
-              {
-                event = "lsp";
-                kind = "message";
-              }
-            ];
+          last = {
+            view = "popup";
+            opts = {
+              enter = true;
+              format = "details";
+            };
+            filter = {
+              any = [
+                {
+                  event = "notify";
+                }
+                {
+                  error = true;
+                }
+                {
+                  warning = true;
+                }
+                {
+                  event = "msg_show";
+                  kind = [""];
+                }
+                {
+                  event = "lsp";
+                  kind = "message";
+                }
+              ];
+            };
+            filter_opts = {count = 1;};
+          };
+          errors = {
+            view = "popup";
+            opts = {
+              enter = true;
+              format = "details";
+            };
+            filter = {error = true;};
+            filter_opts = {reverse = true;};
           };
         };
-        last = {
-          view = "popup";
-          opts = {
-            enter = true;
-            format = "details";
-          };
-          filter = {
-            any = [
-              {
-                event = "notify";
-              }
-              {
-                error = true;
-              }
-              {
-                warning = true;
-              }
-              {
-                event = "msg_show";
-                kind = [""];
-              }
-              {
-                event = "lsp";
-                kind = "message";
-              }
-            ];
-          };
-          filter_opts = {count = 1;};
-        };
-        errors = {
-          view = "popup";
-          opts = {
-            enter = true;
-            format = "details";
-          };
-          filter = {error = true;};
-          filter_opts = {reverse = true;};
-        };
-      };
 
-      health.checker = true;
+        health.checker = true;
 
-      lsp = {
-        documentation = {
-          view = "hover";
+        lsp = {
+          documentation = {
+            view = "hover";
+          };
+          hover.enabled = false;
+          message = {
+            enabled = true;
+            view = "notify";
+          };
+          override = {
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+            "cmp.entry.get_documentation" = config.plugins.cmp.enable;
+          };
+          progress = {
+            enabled = false;
+          };
+          signature = {
+            enabled = false;
+            autoOpen = {
+              enabled = true;
+              trigger = true;
+              luasnip = true;
+            };
+          };
         };
-        hover.enabled = false;
-        message = {
+
+        messages = {
+          enabled = true;
+          view = "notify";
+          viewError = "notify";
+          viewHistory = "messages";
+          viewSearch = "virtualtext";
+          viewWarn = "notify";
+        };
+
+        notify = {
           enabled = true;
           view = "notify";
         };
-        override = {
-          "vim.lsp.util.convert_input_to_markdown_lines" = true;
-          "vim.lsp.util.stylize_markdown" = true;
-          "cmp.entry.get_documentation" = config.plugins.cmp.enable;
+
+        popupmenu = {
+          enabled = true;
+          backend = "nui";
         };
-        progress = {
-          enabled = false;
+
+        presets = {
+          bottom_search = false;
+          command_palette = false;
+          long_message_to_split = false;
+          inc_rename = false;
+          lsp_doc_border = false;
         };
-        signature = {
-          enabled = false;
-          autoOpen = {
-            enabled = true;
-            trigger = true;
-            luasnip = true;
-          };
-        };
-      };
 
-      messages = {
-        enabled = true;
-        view = "notify";
-        viewError = "notify";
-        viewHistory = "messages";
-        viewSearch = "virtualtext";
-        viewWarn = "notify";
-      };
-
-      notify = {
-        enabled = true;
-        view = "notify";
-      };
-
-      popupmenu = {
-        enabled = true;
-        backend = "nui";
-      };
-
-      presets = {
-        bottom_search = false;
-        command_palette = false;
-        long_message_to_split = false;
-        inc_rename = false;
-        lsp_doc_border = false;
-      };
-
-      routes = [
-        {
-          filter = {
-            find = "No information available";
-          };
-          opts = {
-            stop = true;
-          };
-        }
-        {
-          filter = {
-            event = "msg_show";
-            any = [
-              {
-                find = "%d+L, %d+B";
-              }
-              {
-                find = "; after #%d+";
-              }
-              {
-                find = "; before #%d+";
-              }
-              {
-                find = "%d fewer lines";
-              }
-              {
-                find = "%d more lines";
-              }
-            ];
-          };
-          opts = {
-            skip = true;
-          };
-        }
-      ];
-
-      smartMove = {
-        enabled = true;
-        excludedFiletypes = [
-          "cmp_menu"
-          "cmp_docs"
-          "notify"
+        routes = [
+          {
+            filter = {
+              find = "No information available";
+            };
+            opts = {
+              stop = true;
+            };
+          }
+          {
+            filter = {
+              event = "msg_show";
+              any = [
+                {
+                  find = "%d+L, %d+B";
+                }
+                {
+                  find = "; after #%d+";
+                }
+                {
+                  find = "; before #%d+";
+                }
+                {
+                  find = "%d fewer lines";
+                }
+                {
+                  find = "%d more lines";
+                }
+              ];
+            };
+            opts = {
+              skip = true;
+            };
+          }
         ];
+
+        smartMove = {
+          enabled = true;
+          excludedFiletypes = [
+            "cmp_menu"
+            "cmp_docs"
+            "notify"
+          ];
+        };
+
+        status = {};
+
+        views = {};
       };
-
-      status = {};
-
-      views = {};
     };
 
     nvim-ufo = {
       enable = true;
-      providerSelector = ''
-        function(bufnr, filetype, buftype)
-          return ${
-          helpers.toLuaObject
-          (
-            (lib.optional config.plugins.treesitter.enable "treesitter")
-            ++ ["indent"]
-          )
-        }
-          end
-      '';
+
+      settings = {
+        provider_selector = ''
+          function(bufnr, filetype, buftype)
+            return ${
+            helpers.toLuaObject
+            (
+              (lib.optional config.plugins.treesitter.enable "treesitter")
+              ++ ["indent"]
+            )
+          }
+            end
+        '';
+      };
     };
 
     spider = {
@@ -778,7 +789,7 @@
       skipInsignificantPunctuation = false;
     };
 
-    surround = {
+    vim-surround = {
       enable = true;
     };
 
@@ -791,91 +802,54 @@
         };
       };
 
-      keywords = {
-        TODO = {
-          icon = " ";
-          color = "info";
+      settings = {
+        keywords = {
+          TODO = {
+            icon = " ";
+            color = "info";
+          };
+          FIX = {
+            icon = " ";
+            color = "error";
+            alt = ["BUG" "FIXME" "ISSUE"];
+          };
+          WARN = {
+            icon = " ";
+            color = "warning";
+            alt = ["WARNING"];
+          };
+          NOTE = {
+            icon = " ";
+            color = "hint";
+            alt = ["INFO"];
+          };
+          TEST = {
+            icon = "⏲ ";
+            color = "test";
+          };
+          PERF = {
+            icon = " ";
+            color = "info";
+            alt = ["OPTIMIZE" "PERFORMANCE"];
+          };
         };
-        FIX = {
-          icon = " ";
-          color = "error";
-          alt = ["BUG" "FIXME" "ISSUE"];
-        };
-        WARN = {
-          icon = " ";
-          color = "warning";
-          alt = ["WARNING"];
-        };
-        NOTE = {
-          icon = " ";
-          color = "hint";
-          alt = ["INFO"];
-        };
-        TEST = {
-          icon = "⏲ ";
-          color = "test";
-        };
-        PERF = {
-          icon = " ";
-          color = "info";
-          alt = ["OPTIMIZE" "PERFORMANCE"];
-        };
-      };
 
-      mergeKeywords = true;
-      signPriority = 8;
-      signs = true;
+        merge_keywords = true;
+        sign_priority = 8;
+        signs = true;
+      };
     };
 
     trouble = {
       enable = true;
 
       settings = {
-        action_keys = {
-          cancel = "<esc>";
-          close = "q";
-          close_folds = ["zM" "zm"];
-          hover = "K";
-          jump = ["<cr>" "<tab>"];
-          jump_close = ["o"];
-          next = "j";
-          open_folds = ["zR" "zr"];
-          open_split = ["<c-x>"];
-          open_tab = ["<c-t>"];
-          open_vsplit = ["<c-v>"];
-          preview = "p";
-          previous = "k";
-          refresh = "r";
-          toggle_fold = ["zA" "za"];
-          toggle_mode = "m";
-          toggle_preview = "P";
-        };
-
         auto_close = false;
         auto_fold = false;
         auto_open = false;
         auto_preview = false;
-        cycle_results = false;
 
         fold_closed = "";
-        fold_open = "";
-
-        group = true;
-        include_declaration = ["lsp_references" "lsp_implementations" "lsp_definitions"];
-        indent_lines = true;
-        mode = "workspace_diagnostics";
-        padding = true;
-        position = "bottom";
-
-        signs = {
-          error = "";
-          hint = "";
-          information = "";
-          other = "﫠";
-          warning = "";
-        };
-
-        use_diagnostic_signs = false;
       };
     };
 

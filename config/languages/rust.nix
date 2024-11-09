@@ -6,7 +6,7 @@
 }: {
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         rust = ["rustfmt"];
       };
     };
@@ -19,7 +19,7 @@
 
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = false;
           installRustc = false;

@@ -89,24 +89,24 @@
             return { lsp_fallback = true }
           end
         '';
-      };
 
-      formattersByFt = {
-        "_" = [
-          "squeeze_blanks"
-          "trim_whitespace"
-          "trim_newlines"
-        ];
-      };
-
-      formatters = {
-        squeeze_blanks = {
-          command = lib.getExe' pkgs.coreutils "cat";
+        formatters_by_ft = {
+          "_" = [
+            "squeeze_blanks"
+            "trim_whitespace"
+            "trim_newlines"
+          ];
         };
-      };
 
-      logLevel = "error";
-      notifyOnError = true;
+        formatters = {
+          squeeze_blanks = {
+            command = lib.getExe' pkgs.coreutils "cat";
+          };
+        };
+
+        log_level = "error";
+        notify_on_error = true;
+      };
     };
 
     # https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters
