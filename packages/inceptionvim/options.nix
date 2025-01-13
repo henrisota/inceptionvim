@@ -16,6 +16,9 @@
   };
 
   opts = {
+    # Buffers
+    hidden = true;
+
     # Colors
     termguicolors = true;
 
@@ -23,13 +26,22 @@
     encoding = "utf-8";
     fileencoding = "utf-8";
 
-    # Incremental searching
+    # History
+    undofile = true;
+
+    # Search
+    ignorecase = true;
+    smartcase = true;
     hlsearch = true;
     incsearch = true;
 
     # Text wrap
     textwidth = 120;
-    wrap = true;
+    wrap = false;
+
+    # Spelling
+    spell = false;
+    spelllang = lib.mkDefault ["en_us"];
 
     # Splitting
     splitbelow = true;
@@ -41,6 +53,7 @@
     expandtab = true;
 
     # Indentation
+    autoindent = false;
     shiftwidth = 4;
     smartindent = true;
     breakindent = true;
@@ -63,11 +76,12 @@
 
     updatetime = 100;
 
+    # Folding
+    foldenable = true;
     foldcolumn = "0";
     foldlevel = 99;
     foldlevelstart = 99; # Using ufo needs a large value
-    foldenable = true;
 
-    # lazyredraw = false; # Faster scrolling if enabled, breaks noice
+    lazyredraw = false; # Faster scrolling if enabled, breaks noice
   };
 }
