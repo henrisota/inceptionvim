@@ -3,44 +3,47 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    snowfall = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    nixvim,
-    flake-parts,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+  outputs = inputs: let
+    lib = inputs.snowfall.mkLib {
+      inherit inputs;
+      src = ./.;
 
-      perSystem = {
-        pkgs,
-        system,
-        ...
-      }: let
-        nixvimLib = nixvim.lib.${system};
-        nixvim' = nixvim.legacyPackages.${system};
-        nixvimModule = {
-          inherit pkgs;
-          module = import ./config;
-          extraSpecialArgs = {};
+      snowfall = {
+        root = ./.;
+        namespace = "flak";
+        meta = {
+          name = "flak";
+          title = "flak";
         };
-        nvim = nixvim'.makeNixvimWithModule nixvimModule;
-      in {
-        checks = {
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        };
+      };
+    };
+  in
+    lib.mkFlake {
+      inherit inputs;
+      src = ./.;
 
+      alias = {
         packages = {
-          default = nvim;
+          default = "inceptionvim";
         };
+      };
+
+      package-namespace = "flak";
+      channels-config = {
+        allowUnfree = true;
+      };
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.alejandra;
       };
     };
 }
