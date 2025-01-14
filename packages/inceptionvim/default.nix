@@ -10,7 +10,7 @@ inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
   extraSpecialArgs = {};
 
   module = {
-    imports = lib.snowfall.fs.get-non-default-nix-files-recursive ./.;
+    imports = lib.snowfall.fs.get-non-default-nix-files-recursive ../../configuration;
 
     config = {
       viAlias = true;

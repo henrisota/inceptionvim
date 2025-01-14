@@ -16,11 +16,5 @@
         use_git_branch = true;
       };
     };
-
-    persistence = {
-      enable = false;
-      options = ["buffers" "curdir" "tabpages" "winsize"];
-      saveEmpty = false;
-    };
   };
 }
