@@ -10,6 +10,8 @@
       settings = {
         flavour = "mocha";
         transparent_background = true;
+        term_colors = true;
+        show_end_of_buffer = false;
         integrations = {
           alpha = config.plugins.alpha.enable;
           cmp = config.plugins.cmp.enable;
