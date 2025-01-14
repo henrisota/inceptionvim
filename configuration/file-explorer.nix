@@ -46,6 +46,7 @@
 
           neverShow = [
             ".direnv"
+            ".devenv"
             ".git"
           ];
 
