@@ -1,210 +1,109 @@
-# inceptionvim
+<h1 align="center">
+   <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg" width="100px" />
+   <br>
+   inceptionvim
+   <div align="center">
+      <p></p>
+      <div align="center">
+         <a>
+            <img src="https://img.shields.io/badge/Nix-Unstable-blue?style=for-the-badge&logo=nixos&label=NIX&labelColor=303446&color=94e2d5">
+         </a>
+         <a href="https://github.com/snowfallorg/lib" target="_blank">
+            <img alt="Built With Snowfall" src="https://img.shields.io/static/v1?label=Built%20With&labelColor=303446&message=Snowfall&color=94e2d5&style=for-the-badge">
+         </a>
+         <a href="https://github.com/henrisota/inception/blob/main/LICENSE">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=313244&colorB=FAB387&logo=unlicense&logoColor=FAB387&labelColor=303446"/>
+         </a>
+      </div>
+   </div>
+</h1>
 
-## Plugins
+`inception` configuration for [Neovim](https://neovim.io/) in [Nix](https://nixos.org/) using [NixVim](https://nix-community.github.io/nixvim/) and [Flakes](https://)
 
-- [ ] bufferlines/barbar.nix
-- [ ] bufferlines/barbecue.nix
-- [x] bufferlines/bufferline.nix
-- [x] bufferlines/navic.nix
-- [ ] completion/codeium-vim.nix
-- [ ] completion/copilot-lua.nix
-- [ ] completion/copilot-vim.nix
-- [ ] completion/coq.nix
-- [ ] completion/coq-thirdparty.nix
-- [x] completion/cmp
-- [x] completion/lspkind.nix
-- [x] dap 
+## Installation
 
-- [ ] filetrees/chadtree.nix
-- [x] filetrees/neo-tree.nix
-- [ ] filetrees/nvim-tree.nix
-  
-- [ ] git/committia.nix
-- [x] git/diffview.nix
-- [ ] git/git-conflict.nix
-- [ ] git/git-worktree.nix
-- [ ] git/gitblame.nix
-- [ ] git/gitgutter.nix
-- [ ] git/gitignore.nix
-- [ ] git/gitlinker.nix
-- [ ] git/gitmessenger.nix
-- [x] git/gitsigns
-- [x] git/lazygit.nix
-- [ ] git/neogit
-- [ ] git/octo.nix
+Add it as an input to your flake
 
-- [ ] languages/clangd-extensions.nix
-- [ ] languages/debugprint.nix
-- [ ] languages/godot.nix
-- [ ] languages/haskell-scope-highlighting.nix
-- [ ] languages/helm.nix
-- [ ] languages/julia/julia-cell.nix
-- [ ] languages/lean.nix
-- [ ] languages/ledger.nix
-- [x] languages/lint.nix
-- [ ] languages/ltex-extra.nix
-- [ ] languages/markdown-preview.nix
-- [x] languages/nix.nix
-- [ ] languages/nvim-jdtls.nix
-- [ ] languages/openscad.nix
-- [ ] languages/parinfer-rust.nix
-- [ ] languages/plantuml-syntax.nix
-- [ ] languages/python/jupytext.nix
-- [ ] languages/qmk.nix
-- [ ] languages/rust/rust-tools.nix
-- [x] languages/rust/rustaceanvim
-- [ ] languages/sniprun.nix
-- [ ] languages/tagbar.nix
-- [ ] languages/texpresso.nix
-- [ ] languages/treesitter/hmts.nix
-- [ ] languages/treesitter/rainbow-delimiters.nix
-- [ ] languages/treesitter/treesitter-context.nix
-- [ ] languages/treesitter/treesitter-playground.nix
-- [x] languages/treesitter/treesitter-refactor.nix
-- [x] languages/treesitter/treesitter-textobjects.nix
-- [x] languages/treesitter/treesitter.nix
-- [ ] languages/treesitter/ts-autotag.nix
-- [ ] languages/treesitter/ts-context-commentstring.nix
-- [ ] languages/typescript-tools.nix
-- [ ] languages/typst/typst-vim.nix
-- [ ] languages/vim-slime.nix
-- [ ] languages/vimtex.nix
-- [ ] languages/zig.nix
-
-- [x] lsp
-- [x] lsp/conform-nvim.nix
-- [ ] lsp/fidget.nix
-- [ ] lsp/inc-rename.nix
-- [ ] lsp/lspsaga.nix
-- [ ] lsp/lsp-format.nix
-- [ ] lsp/lsp-lines.nix
-- [ ] lsp/lsp-status.nix
-- [ ] lsp/nvim-lightbulb.nix
-- [x] lsp/trouble.nix
-- [x] lsp/wtf.nix
-
-- [x] neotest
-- [ ] none-ls
-- [ ] pluginmanagers/packer.nix
-- [ ] pluginmanagers/lazy.nix
-- [ ] snippets/friendly-snippets.nix
-- [ ] snippets/luasnip
-- [ ] statuslines/airline.nix
-- [ ] statuslines/lightline.nix
-- [x] statuslines/lualine.nix
-- [x] telescope
-
-- [ ] ui/edgy.nix
-- [ ] ui/headlines.nix
-- [ ] ui/image.nix
-- [x] ui/neoscroll.nix
-- [x] ui/noice.nix
-- [ ] ui/statuscol.nix
-- [ ] ui/transparent.nix
-- [ ] ui/twilight.nix
-- [ ] ui/virt-column.nix
-- [ ] ui/zen-mode.nix
-
-- [x] utils/alpha.nix
-- [ ] utils/arrow.nix
-- [ ] utils/auto-save.nix
-- [x] utils/auto-session.nix
-- [ ] utils/autoclose.nix
-- [ ] utils/bacon.nix
-- [ ] utils/baleia.nix
-- [x] utils/better-escape.nix
-- [ ] utils/ccc.nix
-- [ ] utils/clipboard-image.nix
-- [ ] utils/cloak.nix
-- [x] utils/comment.nix
-- [ ] utils/commentary.nix
-- [ ] utils/competitest.nix
-- [ ] utils/conjure.nix
-- [ ] utils/coverage.nix
-- [ ] utils/cursorline.nix
-- [x] utils/dashboard.nix
-- [ ] utils/direnv.nix
-- [ ] utils/dressing.nix
-- [ ] utils/easyescape.nix
-- [ ] utils/emmet.nix
-- [ ] utils/endwise.nix
-- [ ] utils/flash.nix
-- [ ] utils/floaterm.nix
-- [ ] utils/fzf-lua.nix
-- [ ] utils/goyo.nix
-- [x] utils/hardtime.nix
-- [x] utils/harpoon.nix
-- [ ] utils/hop.nix
-- [ ] utils/hydra
-- [x] utils/illuminate.nix
-- [ ] utils/improved-search.nix
-- [x] utils/indent-blankline.nix
-- [x] utils/indent-o-matic.nix
-- [ ] utils/instant.nix
-- [ ] utils/intellitab.nix
-- [ ] utils/lastplace.nix
-- [ ] utils/leap.nix
-- [ ] utils/magma-nvim.nix
-- [ ] utils/mark-radar.nix
-- [ ] utils/marks.nix
-- [ ] utils/mini.nix
-- [ ] utils/mkdnflow.nix
-- [ ] utils/molten.nix
-- [ ] utils/multicursors.nix
-- [x] utils/navbuddy.nix
-- [ ] utils/neocord.nix
-- [x] utils/neogen.nix
-- [ ] utils/neorg.nix
-- [ ] utils/netman.nix
-- [ ] utils/nix-develop.nix
-- [x] utils/notify.nix
-- [ ] utils/nvim-autopairs.nix
-- [ ] utils/nvim-bqf.nix
-- [ ] utils/nvim-colorizer.nix
-- [ ] utils/nvim-osc52.nix
-- [x] utils/nvim-ufo.nix
-- [ ] utils/obsidian
-- [ ] utils/oil.nix
-- [ ] utils/ollama.nix
-- [ ] utils/persistence.nix
-- [ ] utils/presence-nvim.nix
-- [ ] utils/project-nvim.nix
-- [ ] utils/quickmath.nix
-- [x] utils/refactoring.nix
-- [ ] utils/rest.nix
-- [ ] utils/sandwich.nix
-- [ ] utils/sleuth.nix
-- [x] utils/smart-splits.nix
-- [ ] utils/specs.nix
-- [ ] utils/spectre.nix
-- [x] utils/spider.nix
-- [ ] utils/startify
-- [ ] utils/startup.nix
-- [ ] utils/surround.nix
-- [ ] utils/tmux-navigator.nix
-- [x] utils/todo-comments.nix
-- [x] utils/toggleterm.nix
-- [ ] utils/trim.nix
-- [x] utils/undotree.nix
-- [ ] utils/vim-bbye.nix
-- [ ] utils/vim-css-color.nix
-- [ ] utils/vim-matchup.nix
-- [x] utils/which-key.nix
-- [ ] utils/wilder.nix
-- [ ] utils/yanky.nix
-- [ ] utils/zellij.nix
-- [ ] utils/zk.nix
-
-## Testing
-
-To test your configuration simply run the following command
-
+```nix
+inputs.inceptionvim.url = "github:henrisota/inceptionvim";
 ```
+
+Set it as a package in your configuration
+
+### Home Manager
+
+```nix
+home.packages = [inputs.inceptionvim.packages.${system}.default];
+```
+
+### NixOS
+
+```nix
+environment.systemPackages = [inputs.inceptionvim.packages.${system}.default];
+```
+
+## Development
+
+To easily test the current `main` configuration, simply run the following command
+
+```shell
 nix run github:henrisota/inceptionvim
 ```
 
-Alternatively, you can clone the repo and run the following the command
+For local development and testing changes, clone the repository and run the following command
+
+```shell
+nix run .
+```
+
+Pass in arguments to `neovim` via operands
 
 ```
-nix run .
+nix run github:henrisota/inceptionvim -- ./
+```
+
+## Structure
+
+Configuration is set under [configuration](./configuration/) based on functional categories related to development rather than plugin-specific categories.
+
+Overall flake structure follows [Snowfall](https://snowfall.org/).
+
+
+### Plugins
+
+This configuration utilizes the following plugins
+
+| Plugin | In Use | Plugin | In Use |
+| - | - | - | - |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | ✓ | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | ✓ |
+| [nvim-navic](https://github.com/SmiteshP/nvim-navic) | ✓ | [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim) | ✓ |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | ✓ | [noice.nvim](https://github.com/folke/noice.nvim) | ✓ |
+| [lspkind-nvim](https://github.com/onsails/lspkind-nvim) | ✓ | [alpha-nvim](https://github.com/goolord/alpha-nvim) | ✗ |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | ✓ | [auto-session](https://github.com/rmagatti/auto-session) | ✓ |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | ✓ | [better-escape.nvim](https://github.com/max397574/better-escape.nvim) | ✓ |
+| [diffview.nvim](https://github.com/sindrets/diffview.nvim) | ✓ | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | ✓ |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | ✓ | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | ✓ |
+| [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) | ✓ | [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) | ✗ |
+| [nvim-lint](https://github.com/mfussenegger/nvim-lint) | ✓ | [harpoon](https://github.com/ThePrimeagen/harpoon) | ✓ |
+| [vim-nix](https://github.com/LnL7/vim-nix) | ✓ | [vim-illuminate](https://github.com/RRethy/vim-illuminate) | ✓ |
+| [hmts.nvim](https://github.com/calops/hmts.nvim) | ✓ | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | ✓ |
+| [nix-develop.nvim](https://github.com/figsoda/nix-develop.nvim) | ✓ | [indent-o-matic](https://github.com/Darazaki/indent-o-matic) | ✓ |
+| [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | ✗ | [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy) | ✓ |
+| [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor) | ✓ | [neogen](https://github.com/danymat/neogen) | ✓ |
+| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | ✓ | [nvim-notify](https://github.com/rcarriga/nvim-notify) | ✓ |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | ✓ | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) | ✓ |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✓ |
+| [conform.nvim](https://github.com/stevearc/conform.nvim) | ✓ | [nvim-spider](https://github.com/chrisgrieser/nvim-spider) | ✓ |
+| [trouble.nvim](https://github.com/folke/trouble.nvim) | ✓ | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | ✓ |
+| [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✓ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |
+| [neotest](https://github.com/nvim-neotest/neotest) | ✓ | [undotree](https://github.com/mbbill/undotree) | ✓ |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | ✓ | [which-key.nvim](https://github.com/folke/which-key.nvim) | ✓ |
+| [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim) | ✓ |
+
+## Testing
+
+To run checks, simply run the following command
+
+```shell
+nix flake check --impure --all-systems
 ```
