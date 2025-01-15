@@ -73,6 +73,18 @@
 
       settings = {
         defaults = {
+          file_ignore_patterns = [
+            ".git/"
+            ".direnv/"
+            ".devenv/"
+            ".mypy_cache/"
+            ".node_modules/"
+            ".terraform/"
+            "__pycache__/"
+            "flake.lock"
+            "package-lock.json"
+            "yarn.lock"
+          ];
           sorting_strategy = "ascending";
           layout_config = {
             prompt_position = "top";
