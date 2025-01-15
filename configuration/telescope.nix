@@ -70,6 +70,15 @@
           };
         };
       };
+
+      settings = {
+        defaults = {
+          sorting_strategy = "ascending";
+          layout_config = {
+            prompt_position = "top";
+          };
+        };
+      };
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
