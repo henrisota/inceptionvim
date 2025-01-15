@@ -228,9 +228,16 @@
       };
     };
 
-    lazygit = {
+    lazygit = let
+      configuration = (pkgs.formats.yaml {}).generate "lazygit-config.yml" {
+        quitOnTopLevelReturn = true;
+      };
+    in {
       enable = true;
       settings = {
+        use_custom_config_file_path = 1;
+        config_file_path = "${configuration}";
+
         floating_window_border_chars = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
         floating_window_scaling_factor = 0.9;
         floating_window_use_plenary = 0;
