@@ -102,13 +102,17 @@ in {
                 }
               ]
             )
+            ++ (
+              lib.optionals config.plugins.neo-tree.enable [
+                {
+                  icon = "󰥨  ";
+                  desc = "File Explorer";
+                  action = "Neotree action=focus reveal toggle";
+                  shortcut = "SPC e";
+                }
+              ]
+            )
             ++ [
-              {
-                icon = "󰥨  ";
-                desc = "File Explorer";
-                action = ":Neotree action=focus reveal toggle<CR>";
-                shortcut = "SPC e";
-              }
               {
                 icon = "󰅚  ";
                 desc = "Quit";
