@@ -74,16 +74,6 @@
       enable = true;
 
       settings = {
-        hidden = [
-          "<silent>"
-          "<cmd>"
-          "<Cmd>"
-          "<CR>"
-          "^:"
-          "^ "
-          "^call "
-          "^lua "
-        ];
         ignoreMissing = false;
 
         icons = {
@@ -105,9 +95,6 @@
           spacing = 3;
         };
         plugins = {
-          motions = {
-            count = true;
-          };
           presets = {
             g = true;
             motions = true;
@@ -122,9 +109,6 @@
             enabled = false;
             suggestions = 10;
           };
-        };
-        operators = {
-          gc = "Comments";
         };
         show_keys = true;
         triggers_no_wait = ["" "'" "g" "g'" "\"" "<c-r>" "z="];
