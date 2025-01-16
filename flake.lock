@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bufresize-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647824331,
+        "narHash": "sha256-6jqlKe8Ekm+3dvlgFCpJnI0BZzWC3KDYoOb88/itH+g=",
+        "owner": "kwkarlwang",
+        "repo": "bufresize.nvim",
+        "rev": "3b19527ab936d6910484dcc20fb59bdb12322d8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kwkarlwang",
+        "repo": "bufresize.nvim",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -314,6 +330,7 @@
     },
     "root": {
       "inputs": {
+        "bufresize-nvim": "bufresize-nvim",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "snowfall": "snowfall"

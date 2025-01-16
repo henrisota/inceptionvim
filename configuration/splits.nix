@@ -4,6 +4,23 @@
   pkgs,
   ...
 }: {
+  extraPlugins = with pkgs.vimPlugins; [
+    {
+      plugin = bufresize-nvim;
+      config = ''lua require('bufresize').setup()'';
+    }
+  ];
+
+  extraConfigLua = ''
+    require('smart-splits').setup({
+      resize_mode = {
+        hooks = {
+          on_leave = require('bufresize').register,
+        },
+      },
+    })
+  '';
+
   keymaps = lib.optionals config.plugins.smart-splits.enable [
     {
       mode = "n";
