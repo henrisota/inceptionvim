@@ -48,7 +48,7 @@
     indent-o-matic = {
       enable = true;
       settings = {
-        max_lines = -1;
+        max_lines = 65536;
         skip_multiline = false;
         standard_widths = [2 4 8];
       };
