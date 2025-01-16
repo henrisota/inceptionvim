@@ -4,18 +4,6 @@
   pkgs,
   ...
 }: {
-  keymaps =
-    lib.optional config.plugins.neo-tree.enable
-    {
-      mode = "n";
-      key = "<leader>e";
-      action = ":Neotree action=focus reveal toggle<CR>";
-      options = {
-        desc = "󰥨 Explorer";
-        silent = true;
-      };
-    };
-
   plugins = {
     neo-tree = {
       enable = true;
@@ -60,6 +48,19 @@
           leaveDirsOpen = false;
         };
       };
+    };
+
+    which-key = lib.mkIf config.plugins.which-key.enable {
+      settings.spec = [
+        {
+          mode = "n";
+          __unkeyed-1 = "<Leader>e";
+          __unkeyed-2 = "<Cmd>Neotree action=focus reveal toggle<CR>";
+          icon = "󰥨 ";
+          desc = "Explorer";
+          silent = true;
+        }
+      ];
     };
   };
 }
