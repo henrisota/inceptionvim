@@ -105,16 +105,14 @@
           "BufEnter"
           "WinEnter"
         ];
-        ignored_filetypes = [
-          "neotree"
-        ];
+        ignored_filetypes = lib.optional config.plugins.neo-tree.enable "neotree";
         log_level = "info";
         move_cursor_same_row = false;
         multiplexer_integration = true;
         resize_mode = {
           quit_key = "<Esc>";
           resize_keys = ["h" "j" "k" "l"];
-          silent = false;
+          silent = true;
         };
       };
     };
