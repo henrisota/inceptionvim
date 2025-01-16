@@ -58,10 +58,17 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>h";
-          group = "󱡁 Harpoon";
-          a = "Add mark";
-          e = "Toggle Quick Menu";
+          __unkeyed-1 = "<Leader>h";
+          group = "Harpoon";
+          icon = "󱡁 ";
+        }
+        {
+          __unkeyed-1 = "<Leader>ha";
+          group = "Add mark";
+        }
+        {
+          __unkeyed-1 = "<Leader>he";
+          group = "Toggle Quick Menu";
         }
       ];
     };
