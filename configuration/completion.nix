@@ -82,7 +82,10 @@
           ];
 
         window = {
-          completion.__raw = ''cmp.config.window.bordered()'';
+          completion = {
+            __raw = ''cmp.config.window.bordered()'';
+            scrollbar = false;
+          };
           documentation.__raw = ''cmp.config.window.bordered()'';
         };
       };
