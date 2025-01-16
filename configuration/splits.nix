@@ -8,7 +8,7 @@
     {
       mode = "n";
       key = "<C-h>";
-      action = "<cmd>lua require('smart-splits').move_cursor_left({ at_edge = 'stop' })<CR>";
+      action = "<Cmd>lua require('smart-splits').move_cursor_left({ at_edge = 'stop' })<CR>";
       options = {
         desc = "Navigate left split";
         silent = true;
@@ -17,7 +17,7 @@
     {
       mode = "n";
       key = "<C-j>";
-      action = "<cmd>lua require('smart-splits').move_cursor_down({ at_edge = 'stop' })<CR>";
+      action = "<Cmd>lua require('smart-splits').move_cursor_down({ at_edge = 'stop' })<CR>";
       options = {
         desc = "Navigate down split";
         silent = true;
@@ -26,7 +26,7 @@
     {
       mode = "n";
       key = "<C-k>";
-      action = "<cmd>lua require('smart-splits').move_cursor_up({ at_edge = 'stop' })<CR>";
+      action = "<Cmd>lua require('smart-splits').move_cursor_up({ at_edge = 'stop' })<CR>";
       options = {
         desc = "Navigate up split";
         silent = true;
@@ -35,7 +35,7 @@
     {
       mode = "n";
       key = "<C-l>";
-      action = "<cmd>lua require('smart-splits').move_cursor_right({ at_edge = 'stop' })<CR>";
+      action = "<Cmd>lua require('smart-splits').move_cursor_right({ at_edge = 'stop' })<CR>";
       options = {
         desc = "Navigate right split";
         silent = true;
@@ -44,7 +44,7 @@
     {
       mode = "n";
       key = "<C-\\\\>";
-      action = "<cmd>lua require('smart-splits').move_cursor_previous())<CR>";
+      action = "<Cmd>lua require('smart-splits').move_cursor_previous())<CR>";
       options = {
         desc = "Navigate previous split";
         silent = true;
@@ -53,7 +53,7 @@
     {
       mode = "n";
       key = "<A-h>";
-      action = "<cmd>lua require('smart-splits').resize_left()<CR>";
+      action = "<Cmd>lua require('smart-splits').resize_left()<CR>";
       options = {
         desc = "Resize split left";
         silent = true;
@@ -62,7 +62,7 @@
     {
       mode = "n";
       key = "<A-j>";
-      action = "<cmd>lua require('smart-splits').resize_down()<CR>";
+      action = "<Cmd>lua require('smart-splits').resize_down()<CR>";
       options = {
         desc = "Resize split down";
         silent = true;
@@ -71,7 +71,7 @@
     {
       mode = "n";
       key = "<A-k>";
-      action = "<cmd>lua require('smart-splits').resize_up()<CR>";
+      action = "<Cmd>lua require('smart-splits').resize_up()<CR>";
       options = {
         desc = "Resize split up";
         silent = true;
@@ -80,13 +80,14 @@
     {
       mode = "n";
       key = "<A-l>";
-      action = "<cmd>lua require('smart-splits').resize_right()<CR>";
+      action = "<Cmd>lua require('smart-splits').resize_right()<CR>";
       options = {
         desc = "Resize split right";
         silent = true;
       };
     }
   ];
+
   plugins = {
     smart-splits = {
       enable = true;
@@ -111,7 +112,7 @@
         move_cursor_same_row = false;
         multiplexer_integration = true;
         resize_mode = {
-          quit_key = "<ESC>";
+          quit_key = "<Esc>";
           resize_keys = ["h" "j" "k" "l"];
           silent = false;
         };
