@@ -6,11 +6,11 @@
 }: {
   keymaps = lib.optionals config.plugins.toggleterm.enable [
     {
-      mode = "n";
+      mode = ["n" "t"];
       key = "<Leader>tt";
       action = "<Cmd>ToggleTerm direction=float<CR>";
       options = {
-        desc = "Open terminal";
+        desc = "Toggle terminal";
         silent = true;
       };
     }
@@ -20,15 +20,6 @@
       action = "<Cmd>ToggleTerm direction=horizontal<CR>";
       options = {
         desc = "Open terminal horizontally";
-        silent = true;
-      };
-    }
-    {
-      mode = "t";
-      key = "<esc><esc>";
-      action = "<C-\\><C-n><Cmd>ToggleTerm<CR>";
-      options = {
-        desc = "Exit terminal";
         silent = true;
       };
     }
