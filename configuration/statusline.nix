@@ -95,7 +95,32 @@ in {
     lualine = {
       enable = true;
 
-      settings = {
+      settings = let
+        locationComponent = {
+          __unkeyed-1 = "location";
+          padding = {
+            left = 1;
+            right = 1;
+          };
+          fmt = ''
+            function()
+              return "%l:%c"
+            end
+          '';
+        };
+        progressComponent = {
+          __unkeyed-1 = "progress";
+          padding = {
+            left = 0;
+            right = 0;
+          };
+          fmt = ''
+            function()
+              return ""
+            end
+          '';
+        };
+      in {
         always_divide_middle = true;
         disabled_filetypes = {
           statusline =
@@ -206,47 +231,17 @@ in {
                 end
               '';
             })
-            ++ (lib.optional config.plugins.better-escape.enable {
-              fmt = ''
-                function()
-                  local ok, m = pcall(require, 'better_escape')
-                  return ok and m.waiting and '✺' or ""
-                end
-              '';
-            })
             ++ [
-              {
-                padding = {
-                  left = 0;
-                  right = 0;
-                };
-                separator = {
-                  left = "";
-                  right = "";
-                };
-              }
               "fileformat"
               "encoding"
             ];
 
           lualine_y = [
-            {
-              fmt = ''
-                function()
-                 return ""
-                end,
-              '';
-            }
+            progressComponent
           ];
 
           lualine_z = [
-            {
-              fmt = ''
-                function()
-                  return "Ln %l, Col %c"
-                end
-              '';
-            }
+            locationComponent
           ];
         };
 
@@ -260,7 +255,7 @@ in {
           ];
 
           lualine_x = [
-            "location"
+            locationComponent
           ];
 
           lualine_y = [];
