@@ -85,9 +85,9 @@ This configuration utilizes the following plugins
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | ✓ | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | ✓ |
 | [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) | ✓ | [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) | ✗ |
 | [nvim-lint](https://github.com/mfussenegger/nvim-lint) | ✓ | [harpoon](https://github.com/ThePrimeagen/harpoon) | ✓ |
-| [vim-nix](https://github.com/LnL7/vim-nix) | ✓ | [vim-illuminate](https://github.com/RRethy/vim-illuminate) | ✓ |
-| [hmts.nvim](https://github.com/calops/hmts.nvim) | ✓ | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | ✓ |
-| [nix-develop.nvim](https://github.com/figsoda/nix-develop.nvim) | ✓ | [indent-o-matic](https://github.com/Darazaki/indent-o-matic) | ✓ |
+| [vim-nix](https://github.com/LnL7/vim-nix) | ✗ | [vim-illuminate](https://github.com/RRethy/vim-illuminate) | ✓ |
+| [hmts.nvim](https://github.com/calops/hmts.nvim) | ✗ | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | ✓ |
+| [nix-develop.nvim](https://github.com/figsoda/nix-develop.nvim) | ✗ | [indent-o-matic](https://github.com/Darazaki/indent-o-matic) | ✓ |
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | ✗ | [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy) | ✓ |
 | [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor) | ✓ | [neogen](https://github.com/danymat/neogen) | ✓ |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | ✓ | [nvim-notify](https://github.com/rcarriga/nvim-notify) | ✓ |

@@ -5,9 +5,9 @@
   ...
 }: {
   plugins = {
-    nix.enable = true;
-    hmts.enable = true;
-    nix-develop.enable = true;
+    nix.enable = false;
+    hmts.enable = false;
+    nix-develop.enable = false;
 
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
       settings.formatters_by_ft = {
