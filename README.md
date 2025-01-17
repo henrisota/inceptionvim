@@ -98,7 +98,7 @@ This configuration utilizes the following plugins
 | [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✓ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |
 | [neotest](https://github.com/nvim-neotest/neotest) | ✓ | [undotree](https://github.com/mbbill/undotree) | ✓ |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | ✓ | [which-key.nvim](https://github.com/folke/which-key.nvim) | ✓ |
-| [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim) | ✓ |
+| [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim) | ✓ | [typr](https://github.com/nvzone/typr) | ✓ |
 
 ## Testing
 

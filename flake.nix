@@ -16,6 +16,14 @@
       url = "github:kwkarlwang/bufresize.nvim";
       flake = false;
     };
+    typr = {
+      url = "github:nvzone/typr";
+      flake = false;
+    };
+    volt = {
+      url = "github:nvzone/volt";
+      flake = false;
+    };
   };
 
   outputs = inputs: let
