@@ -79,7 +79,7 @@ This configuration utilizes the following plugins
 | [nvim-navic](https://github.com/SmiteshP/nvim-navic) | ✓ | [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim) | ✓ |
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | ✓ | [noice.nvim](https://github.com/folke/noice.nvim) | ✓ |
 | [lspkind-nvim](https://github.com/onsails/lspkind-nvim) | ✓ | [alpha-nvim](https://github.com/goolord/alpha-nvim) | ✗ |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | ✓ | [auto-session](https://github.com/rmagatti/auto-session) | ✓ |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | ✗ | [auto-session](https://github.com/rmagatti/auto-session) | ✓ |
 | [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | ✓ | [better-escape.nvim](https://github.com/max397574/better-escape.nvim) | ✓ |
 | [diffview.nvim](https://github.com/sindrets/diffview.nvim) | ✓ | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | ✓ |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | ✓ | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | ✓ |

@@ -11,11 +11,11 @@
 
   plugins = {
     dap = {
-      enable = true;
+      enable = false;
 
       extensions = {
         dap-ui = {
-          enable = true;
+          enable = false;
           controls = {
             enabled = true;
             element = "repl";
@@ -68,7 +68,7 @@
           ];
         };
 
-        dap-virtual-text.enable = true;
+        dap-virtual-text.enable = false;
       };
 
       signs = {
