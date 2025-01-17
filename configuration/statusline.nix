@@ -266,31 +266,21 @@ in {
         tabline = {};
 
         winbar = {
-          lualine_c =
-            [
-              {
-                fmt = ''
-                  function()
-                   return " "
-                  end,
-                '';
-              }
-            ]
-            ++ (lib.optional config.plugins.navic.enable "navic");
+          lualine_c = (
+            lib.optional config.plugins.navic.enable
+            {
+              __unkeyed-1 = "navic";
+            }
+          );
         };
 
         inactive_winbar = {
-          lualine_c =
-            [
-              {
-                fmt = ''
-                  function()
-                   return " "
-                  end,
-                '';
-              }
-            ]
-            ++ (lib.optional config.plugins.navic.enable "navic");
+          lualine_c = (
+            lib.optional config.plugins.navic.enable
+            {
+              __unkeyed-1 = "navic";
+            }
+          );
         };
       };
     };
