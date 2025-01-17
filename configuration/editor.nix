@@ -469,7 +469,7 @@
     };
 
     neogen = {
-      enable = true;
+      enable = false;
       enablePlaceholders = true;
       inputAfterComment = true;
       keymapsSilent = true;
