@@ -26,7 +26,10 @@
           indent_blankline.enabled = config.plugins.indent-blankline.enable;
           leap = config.plugins.leap.enable;
           mini.enabled = config.plugins.mini.enable;
-          navic.enabled = config.plugins.navic.enable;
+          navic = {
+            enabled = config.plugins.navic.enable;
+            custom_bg = lib.mkIf config.plugins.lualine.enable "lualine";
+          };
           neogit = config.plugins.neogit.enable;
           neotest = config.plugins.neotest.enable;
           neotree = config.plugins.neo-tree.enable;
