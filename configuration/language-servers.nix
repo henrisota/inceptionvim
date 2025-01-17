@@ -106,6 +106,7 @@
 
         log_level = "error";
         notify_on_error = true;
+        notify_no_formatters = false;
       };
     };
 
@@ -118,7 +119,7 @@
       };
     };
 
-    # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    # https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     lsp = {
       enable = true;
     };
