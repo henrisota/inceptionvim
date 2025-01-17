@@ -889,7 +889,7 @@
     };
 
     wtf = {
-      enable = true;
+      enable = false;
       searchEngine = "google";
     };
   };

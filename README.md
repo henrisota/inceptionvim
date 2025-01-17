@@ -95,7 +95,7 @@ This configuration utilizes the following plugins
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✓ |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | ✓ | [nvim-spider](https://github.com/chrisgrieser/nvim-spider) | ✓ |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | ✗ | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | ✓ |
-| [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✓ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |
+| [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✗ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |
 | [neotest](https://github.com/nvim-neotest/neotest) | ✓ | [undotree](https://github.com/mbbill/undotree) | ✓ |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | ✓ | [which-key.nvim](https://github.com/folke/which-key.nvim) | ✓ |
 | [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim) | ✓ | [typr](https://github.com/nvzone/typr) | ✓ |
