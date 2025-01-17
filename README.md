@@ -94,7 +94,7 @@ This configuration utilizes the following plugins
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | ✓ | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) | ✓ |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✓ |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | ✓ | [nvim-spider](https://github.com/chrisgrieser/nvim-spider) | ✓ |
-| [trouble.nvim](https://github.com/folke/trouble.nvim) | ✓ | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | ✓ |
+| [trouble.nvim](https://github.com/folke/trouble.nvim) | ✗ | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | ✓ |
 | [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✓ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |
 | [neotest](https://github.com/nvim-neotest/neotest) | ✓ | [undotree](https://github.com/mbbill/undotree) | ✓ |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | ✓ | [which-key.nvim](https://github.com/folke/which-key.nvim) | ✓ |
