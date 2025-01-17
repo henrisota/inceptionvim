@@ -10,37 +10,6 @@
     register = "unnamedplus";
   };
 
-  extraPlugins = with pkgs.vimPlugins; [
-    smartcolumn-nvim
-  ];
-
-  extraConfigLua = ''
-    require("smartcolumn").setup({
-      colorcolumn = "120",
-      disabled_filetypes = ${
-      helpers.toLuaObject
-      ([
-          "checkhealth"
-          "help"
-          "netrw"
-        ]
-        ++ (lib.optional config.plugins.alpha.enable "alpha")
-        ++ (lib.optional config.plugins.dashboard.enable "dashboard")
-        ++ (lib.optional config.plugins.diffview.enable "Diffview*")
-        ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
-        ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-        ++ (lib.optional config.plugins.noice.enable "noice")
-        ++ (lib.optional config.plugins.notify.enable "notify")
-        ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
-        ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-        ++ (lib.optionals config.plugins.trouble.enable ["trouble" "Trouble"])
-        ++ (lib.optional config.plugins.undotree.enable "undotree"))
-    },
-      scope = "line",
-      custom_colorcolumn = {}
-    })
-  '';
-
   keymaps =
     (
       lib.optional config.plugins.navbuddy.enable
@@ -784,17 +753,45 @@
       };
     };
 
+    smartcolumn = {
+      enable = true;
+
+      settings = {
+        colorcolumn = "120";
+        custom_colorcolumn = {};
+        disabled_filetypes =
+          [
+            "checkhealth"
+            "help"
+            "netrw"
+          ]
+          ++ (lib.optional config.plugins.alpha.enable "alpha")
+          ++ (lib.optional config.plugins.dashboard.enable "dashboard")
+          ++ (lib.optional config.plugins.diffview.enable "Diffview*")
+          ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
+          ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
+          ++ (lib.optional config.plugins.neotest.enable "neotest")
+          ++ (lib.optional config.plugins.noice.enable "noice")
+          ++ (lib.optional config.plugins.notify.enable "notify")
+          ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
+          ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
+          ++ (lib.optionals config.plugins.trouble.enable ["trouble" "Trouble"])
+          ++ (lib.optional config.plugins.undotree.enable "undotree");
+        scope = "file";
+      };
+    };
+
     spider = {
       enable = true;
       skipInsignificantPunctuation = false;
     };
 
     vim-surround = {
-      enable = true;
+      enable = false;
     };
 
     todo-comments = {
-      enable = true;
+      enable = false;
 
       keymaps = {
         todoTelescope = {
