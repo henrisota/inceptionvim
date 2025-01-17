@@ -501,7 +501,7 @@
     };
 
     noice = {
-      enable = true;
+      enable = false;
 
       settings = {
         cmdline = {

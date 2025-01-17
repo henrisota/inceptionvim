@@ -89,7 +89,7 @@ This configuration utilizes the following plugins
 | [hmts.nvim](https://github.com/calops/hmts.nvim) | ✗ | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | ✓ |
 | [nix-develop.nvim](https://github.com/figsoda/nix-develop.nvim) | ✗ | [indent-o-matic](https://github.com/Darazaki/indent-o-matic) | ✓ |
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | ✗ | [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy) | ✓ |
-| [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor) | ✓ | [neogen](https://github.com/danymat/neogen) | ✓ |
+| [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor) | ✓ | [neogen](https://github.com/danymat/neogen) | ✗ |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | ✓ | [nvim-notify](https://github.com/rcarriga/nvim-notify) | ✓ |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | ✓ | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) | ✓ |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✓ |
