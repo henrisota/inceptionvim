@@ -744,7 +744,13 @@
             return ${
             helpers.toLuaObject
             (
-              (lib.optional config.plugins.treesitter.enable "treesitter")
+              (
+                if config.plugins.treesitter.enable
+                then ["treesitter"]
+                else if config.plugins.lsp.enable
+                then ["lsp"]
+                else []
+              )
               ++ ["indent"]
             )
           }
