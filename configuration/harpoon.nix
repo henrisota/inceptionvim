@@ -30,13 +30,13 @@
         ++ (lib.optional config.plugins.undotree.enable "undotree");
 
       keymaps = {
-        addFile = "<leader>ha";
-        toggleQuickMenu = "<leader>he";
+        addFile = "<Leader>ha";
+        toggleQuickMenu = "<Leader>he";
         navFile = {
-          "1" = "<leader>hj";
-          "2" = "<leader>hk";
-          "3" = "<leader>hl";
-          "4" = "<leader>hm";
+          "1" = "<Leader>hj";
+          "2" = "<Leader>hk";
+          "3" = "<Leader>hl";
+          "4" = "<Leader>hm";
         };
       };
 

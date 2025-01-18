@@ -8,8 +8,8 @@
     [
       {
         mode = "n";
-        key = "<leader>at";
-        action = "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>";
+        key = "<Leader>at";
+        action = "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>";
         options = {
           desc = "Test file";
           silent = true;
@@ -18,8 +18,8 @@
       # FIX: Look into alternative method or command
       # {
       #   mode = "n";
-      #   key = "<leader>aT";
-      #   action = "<cmd>lua require('neotest').run.run(vim.loop.cwd())<CR>";
+      #   key = "<Leader>aT";
+      #   action = "<Cmd>lua require('neotest').run.run(vim.loop.cwd())<CR>";
       #   options = {
       #     silent = true;
       #     desc = "Test all files";
@@ -27,8 +27,8 @@
       # }
       {
         mode = "n";
-        key = "<leader>ar";
-        action = "<cmd>lua require('neotest').run.run()<CR>";
+        key = "<Leader>ar";
+        action = "<Cmd>lua require('neotest').run.run()<CR>";
         options = {
           desc = "Test nearest";
           silent = true;
@@ -36,8 +36,8 @@
       }
       {
         mode = "n";
-        key = "<leader>aS";
-        action = "<cmd>lua require('neotest').stop()<CR>";
+        key = "<Leader>aS";
+        action = "<Cmd>lua require('neotest').stop()<CR>";
         options = {
           desc = "Stop tests";
           silent = true;
@@ -45,8 +45,8 @@
       }
       {
         mode = "n";
-        key = "<leader>as";
-        action = "<cmd>lua require('neotest').summary.toggle()<CR>";
+        key = "<Leader>as";
+        action = "<Cmd>lua require('neotest').summary.toggle()<CR>";
         options = {
           desc = "Toggle test summary";
           silent = true;
@@ -54,8 +54,8 @@
       }
       {
         mode = "n";
-        key = "<leader>ao";
-        action = "<cmd>lua require('neotest').output.open({ enter = true, auto_close = true })<CR>";
+        key = "<Leader>ao";
+        action = "<Cmd>lua require('neotest').output.open({ enter = true, auto_close = true })<CR>";
         options = {
           desc = "Show test output";
           silent = true;
@@ -63,8 +63,8 @@
       }
       {
         mode = "n";
-        key = "<leader>aO";
-        action = "<cmd>lua require('neotest').output_panel.toggle()<CR>";
+        key = "<Leader>aO";
+        action = "<Cmd>lua require('neotest').output_panel.toggle()<CR>";
         options = {
           desc = "Toggle test output";
           silent = true;
@@ -112,7 +112,7 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>a";
+          __unkeyed-1 = "<Leader>a";
           group = "󰙨 Analyze";
         }
       ];

@@ -82,7 +82,7 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>d";
+          __unkeyed-1 = "<Leader>d";
           group = " Debug";
         }
       ];

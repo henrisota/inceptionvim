@@ -8,8 +8,8 @@
     lib.optional config.plugins.telescope.enable
     {
       mode = "n";
-      key = "<leader>lr";
-      action = "<cmd>Telescope lsp_references<CR>";
+      key = "<Leader>lr";
+      action = "<Cmd>Telescope lsp_references<CR>";
       options = {
         desc = "List LSP references";
         silent = true;
@@ -127,7 +127,7 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>l";
+          __unkeyed-1 = "<Leader>l";
           group = " LSP";
         }
       ];

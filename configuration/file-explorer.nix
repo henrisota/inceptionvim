@@ -56,7 +56,7 @@
 
         mappings = let
           noneMappings = [
-            "<bs>"
+            "<BS>"
             "/"
             "#"
             "<C-x>"
@@ -82,7 +82,7 @@
             };
             "." = "set_root";
 
-            "<cr>" = "open";
+            "<CR>" = "open";
             "<2-LeftMouse>" = "open";
 
             h = "open_split";

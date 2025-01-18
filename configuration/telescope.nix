@@ -12,7 +12,7 @@
       };
 
       keymaps = {
-        "<leader>ff" = {
+        "<Leader>ff" = {
           mode = "n";
           action = "find_files hidden=true";
           options = {
@@ -20,7 +20,7 @@
             silent = true;
           };
         };
-        "<leader>fg" = {
+        "<Leader>fg" = {
           mode = "n";
           action = "live_grep";
           options = {
@@ -28,7 +28,7 @@
             silent = true;
           };
         };
-        "<leader>fz" = {
+        "<Leader>fz" = {
           mode = "n";
           action = "current_buffer_fuzzy_find";
           options = {
@@ -36,7 +36,7 @@
             silent = true;
           };
         };
-        "<leader>fr" = {
+        "<Leader>fr" = {
           mode = "n";
           action = "oldfiles";
           options = {
@@ -44,7 +44,7 @@
             silent = true;
           };
         };
-        "<leader>fw" = {
+        "<Leader>fw" = {
           mode = "n";
           action = "grep_string";
           options = {
@@ -52,7 +52,7 @@
             silent = true;
           };
         };
-        "<leader>fb" = {
+        "<Leader>fb" = {
           mode = "n";
           action = "buffers";
           options = {
@@ -60,7 +60,7 @@
             silent = true;
           };
         };
-        "<leader>fc" = {
+        "<Leader>fc" = {
           mode = "n";
           action = "command_history";
           options = {
@@ -95,7 +95,7 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>f";
+          __unkeyed-1 = "<Leader>f";
           group = " Finder";
         }
       ];

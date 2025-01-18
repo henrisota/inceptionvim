@@ -16,7 +16,7 @@
           enable = true;
           init_selection = "<C-space>";
           node_incremental = "<C-space>";
-          node_decremental = "<bs>";
+          node_decremental = "<BS>";
         };
       };
     };
@@ -33,10 +33,10 @@
       navigation = {
         enable = true;
         keymaps = {
-          #  gotoDefinitionLspFallback = null;   # Fallback to `vim.lsp.buf.definition`. Use custom callback func if create mapping of "lua require('nvim-treesitter').refactor.navigation(nil,fallback_function)<cr>";
+          #  gotoDefinitionLspFallback = null;   # Fallback to `vim.lsp.buf.definition`. Use custom callback func if create mapping of "lua require('nvim-treesitter').refactor.navigation(nil,fallback_function)<CR>";
           #  gotoDefinition = "gnd";             # Go to symbol under cursor
-          #  gotoNextUsage = "<a-*>";            # Go to next     usage of identifier
-          #  gotoPrevUsage = "<a-#>";            # Go to previous usage of identifier
+          #  gotoNextUsage = "<A-*>";            # Go to next     usage of identifier
+          #  gotoPrevUsage = "<A-#>";            # Go to previous usage of identifier
           listDefinitions = "gnD"; # List all definitions from current file
           #  listDefinitionsToc = "g0";          # List all definitions from current file like table of contents
         };

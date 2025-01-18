@@ -8,8 +8,8 @@
     [
       {
         mode = "n";
-        key = "<leader>bp";
-        action = ":BufferLinePick<CR>";
+        key = "<Leader>bp";
+        action = "<Cmd>BufferLinePick<CR>";
         options = {
           desc = "Pick buffer";
           silent = true;
@@ -17,8 +17,8 @@
       }
       {
         mode = "n";
-        key = "<leader>bc";
-        action = ":BufferLineCloseOthers<CR>";
+        key = "<Leader>bc";
+        action = "<Cmd>BufferLineCloseOthers<CR>";
         options = {
           desc = "Close all buffers except current";
           silent = true;
@@ -27,7 +27,7 @@
       {
         mode = "n";
         key = "<C-Tab>";
-        action = ":BufferLineCycleNext<CR>";
+        action = "<Cmd>BufferLineCycleNext<CR>";
         options = {
           desc = "Move to next buffer";
           silent = true;
@@ -36,7 +36,7 @@
       {
         mode = "n";
         key = "<C-S-Tab>";
-        action = ":BufferLineCyclePrev<CR>";
+        action = "<Cmd>BufferLineCyclePrev<CR>";
         options = {
           desc = "Move to previous buffer";
           silent = true;
@@ -133,7 +133,7 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>b";
+          __unkeyed-1 = "<Leader>b";
           group = " Buffers";
         }
       ];

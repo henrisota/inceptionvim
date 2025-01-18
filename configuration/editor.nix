@@ -15,8 +15,8 @@
       lib.optional config.plugins.navbuddy.enable
       {
         mode = "n";
-        key = "<leader>n";
-        action = ":Navbuddy<CR>";
+        key = "<Leader>n";
+        action = "<Cmd>Navbuddy<CR>";
         options = {
           desc = "󱣱 Navigate";
           silent = true;
@@ -25,8 +25,8 @@
     )
     ++ (lib.optional (config.plugins.telescope.enable && config.plugins.noice.enable) {
       mode = "n";
-      key = "<leader>fm";
-      action = ":Telescope noice<CR>";
+      key = "<Leader>fm";
+      action = "<Cmd>Telescope noice<CR>";
       options = {
         desc = "Find messages";
         silent = true;
@@ -35,8 +35,8 @@
     ++ (lib.optionals config.plugins.neogen.enable [
       {
         mode = "n";
-        key = "<leader>ca";
-        action = ":Neogen<CR>";
+        key = "<Leader>ca";
+        action = "<Cmd>Neogen<CR>";
         options = {
           desc = "Annotate";
           silent = true;
@@ -44,8 +44,8 @@
       }
       {
         mode = "n";
-        key = "<leader>caf";
-        action = ":Neogen func<CR>";
+        key = "<Leader>caf";
+        action = "<Cmd>Neogen func<CR>";
         options = {
           desc = "Annotate function";
           silent = true;
@@ -53,8 +53,8 @@
       }
       {
         mode = "n";
-        key = "<leader>cac";
-        action = ":Neogen class<CR>";
+        key = "<Leader>cac";
+        action = "<Cmd>Neogen class<CR>";
         options = {
           desc = "Annotate class";
           silent = true;
@@ -62,8 +62,8 @@
       }
       {
         mode = "n";
-        key = "<leader>cat";
-        action = ":Neogen type<CR>";
+        key = "<Leader>cat";
+        action = "<Cmd>Neogen type<CR>";
         options = {
           desc = "Annotate type";
           silent = true;
@@ -73,8 +73,8 @@
     ++ (lib.optionals config.plugins.noice.enable [
       {
         mode = "n";
-        key = "<leader>mh";
-        action = ":Noice history<CR>";
+        key = "<Leader>mh";
+        action = "<Cmd>Noice history<CR>";
         options = {
           desc = "List messages";
           silent = true;
@@ -82,8 +82,8 @@
       }
       {
         mode = "n";
-        key = "<leader>ml";
-        action = ":Noice last<CR>";
+        key = "<Leader>ml";
+        action = "<Cmd>Noice last<CR>";
         options = {
           desc = "Get last message";
           silent = true;
@@ -91,8 +91,8 @@
       }
       {
         mode = "n";
-        key = "<leader>me";
-        action = ":Noice errors<CR>";
+        key = "<Leader>me";
+        action = "<Cmd>Noice errors<CR>";
         options = {
           desc = "List errors";
           silent = true;
@@ -112,7 +112,7 @@
       {
         mode = "n";
         key = "zR";
-        action = "<cmd>lua require('ufo').openAllFolds()<CR>";
+        action = "<Cmd>lua require('ufo').openAllFolds()<CR>";
         options = {
           desc = "Unfold all";
           silent = true;
@@ -121,7 +121,7 @@
       {
         mode = "n";
         key = "zM";
-        action = "<cmd>lua require('ufo').closeAllFolds()<CR>";
+        action = "<Cmd>lua require('ufo').closeAllFolds()<CR>";
         options = {
           desc = "Fold all";
           silent = true;
@@ -130,7 +130,7 @@
       {
         mode = "n";
         key = "zK";
-        action = "<cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>";
+        action = "<Cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>";
         options = {
           desc = "Peek lines in fold";
           silent = true;
@@ -141,7 +141,7 @@
       {
         mode = ["n" "o" "x"];
         key = "w";
-        action = "<cmd>lua require('spider').motion('w')<CR>";
+        action = "<Cmd>lua require('spider').motion('w')<CR>";
         options = {
           desc = "w";
           silent = true;
@@ -150,7 +150,7 @@
       {
         mode = ["n" "o" "x"];
         key = "e";
-        action = "<cmd>lua require('spider').motion('e')<CR>";
+        action = "<Cmd>lua require('spider').motion('e')<CR>";
         options = {
           desc = "e";
           silent = true;
@@ -159,7 +159,7 @@
       {
         mode = ["n" "o" "x"];
         key = "b";
-        action = "<cmd>lua require('spider').motion('b')<CR>";
+        action = "<Cmd>lua require('spider').motion('b')<CR>";
         options = {
           desc = "b";
           silent = true;
@@ -169,8 +169,8 @@
     ++ (lib.optionals config.plugins.trouble.enable [
       {
         mode = "n";
-        key = "<leader>xx";
-        action = "<cmd>TroubleToggle<cr>";
+        key = "<Leader>xx";
+        action = "<Cmd>TroubleToggle<CR>";
         options = {
           desc = "Toggle Trouble";
           silent = true;
@@ -178,8 +178,8 @@
       }
       {
         mode = "n";
-        key = "<leader>xw";
-        action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
+        key = "<Leader>xw";
+        action = "<Cmd>TroubleToggle workspace_diagnostics<CR>";
         options = {
           desc = "Toggle Trouble workspace diagnostics";
           silent = true;
@@ -187,8 +187,8 @@
       }
       {
         mode = "n";
-        key = "<leader>xd";
-        action = "<cmd>TroubleToggle document_diagnostics<cr>";
+        key = "<Leader>xd";
+        action = "<Cmd>TroubleToggle document_diagnostics<CR>";
         options = {
           desc = "Toggle Trouble document diagnostics";
           silent = true;
@@ -196,8 +196,8 @@
       }
       {
         mode = "n";
-        key = "<leader>xq";
-        action = "<cmd>TroubleToggle quickfix<cr>";
+        key = "<Leader>xq";
+        action = "<Cmd>TroubleToggle quickfix<CR>";
         options = {
           desc = "Toggle Trouble quickfix";
           silent = true;
@@ -205,8 +205,8 @@
       }
       {
         mode = "n";
-        key = "<leader>xl";
-        action = "<cmd>TroubleToggle lsp_references<cr>";
+        key = "<Leader>xl";
+        action = "<Cmd>TroubleToggle lsp_references<CR>";
         options = {
           desc = "Toggle Trouble location list";
           silent = true;
@@ -214,8 +214,8 @@
       }
       {
         mode = "n";
-        key = "<leader>xt";
-        action = "<cmd>TroubleToggle todo<cr>";
+        key = "<Leader>xt";
+        action = "<Cmd>TroubleToggle todo<CR>";
         options = {
           desc = "Toggle Trouble todo";
           silent = true;
@@ -224,8 +224,8 @@
     ])
     ++ (lib.optional config.plugins.undotree.enable {
       mode = "n";
-      key = "<leader>u";
-      action = "<cmd>UndotreeToggle<cr>";
+      key = "<Leader>u";
+      action = "<Cmd>UndotreeToggle<CR>";
       options = {
         desc = " Undo tree";
         silent = true;
@@ -234,7 +234,7 @@
     ++ (lib.optional config.plugins.wtf.enable {
       mode = "n";
       key = "fd";
-      action = "<cmd>lua require('wtf').search()<CR>";
+      action = "<Cmd>lua require('wtf').search()<CR>";
       options = {
         desc = "Search diagnostic with Google";
         silent = true;
@@ -258,8 +258,8 @@
         sticky = true;
 
         toggler = {
-          block = "<leader>?";
-          line = "<leader>/";
+          block = "<Leader>?";
+          line = "<Leader>/";
         };
 
         mappings = {
@@ -389,7 +389,7 @@
       };
 
       mappings = {
-        "<ESC>" = "close";
+        "<Esc>" = "close";
         "q" = "close";
 
         "j" = "next_sibling";
@@ -801,7 +801,7 @@
 
       keymaps = {
         todoTelescope = {
-          key = "<leader>ft";
+          key = "<Leader>ft";
         };
       };
 
@@ -876,15 +876,15 @@
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
         {
-          __unkeyed-1 = "<leader>c";
+          __unkeyed-1 = "<Leader>c";
           group = " Create";
         }
         {
-          __unkeyed-1 = "<leader>m";
+          __unkeyed-1 = "<Leader>m";
           group = " Messages";
         }
         {
-          __unkeyed-1 = "<leader>x";
+          __unkeyed-1 = "<Leader>x";
           group = " Trouble";
         }
         {

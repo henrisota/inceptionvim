@@ -2,8 +2,8 @@ _: {
   keymaps = [
     {
       mode = "n";
-      key = "<leader>Q";
-      action = "<cmd>qa<CR>";
+      key = "<Leader>Q";
+      action = "<Cmd>qa<CR>";
       options = {
         desc = "Quit all open buffers";
         silent = true;
@@ -11,8 +11,8 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>w";
-      action = "<cmd>w<CR>";
+      key = "<Leader>w";
+      action = "<Cmd>w<CR>";
       options = {
         desc = "Write current buffer";
         silent = true;
@@ -20,8 +20,8 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>ww";
-      action = "<cmd>w!<CR>";
+      key = "<Leader>ww";
+      action = "<Cmd>w!<CR>";
       options = {
         desc = "Write current buffer forced";
         silent = true;
@@ -29,8 +29,8 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>wq";
-      action = "<cmd>wq<CR>";
+      key = "<Leader>wq";
+      action = "<Cmd>wq<CR>";
       options = {
         desc = "Write current buffer and quit";
         silent = true;
@@ -38,8 +38,8 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>wqq";
-      action = "<cmd>wq!<CR>";
+      key = "<Leader>wqq";
+      action = "<Cmd>wq!<CR>";
       options = {
         desc = "Write current buffer and quit forced";
         silent = true;
@@ -106,7 +106,7 @@ _: {
           };
         };
         show_keys = true;
-        triggers_no_wait = ["" "'" "g" "g'" "\"" "<c-r>" "z="];
+        triggers_no_wait = ["" "'" "g" "g'" "\"" "<C-r>" "z="];
         triggers_black_list = {
           i = ["j" "k"];
           v = ["j" "k"];
