@@ -54,7 +54,7 @@
       tmuxAutocloseWindows = false;
     };
 
-    which-key = lib.mkIf config.plugins.which-key.enable {
+    which-key = lib.mkIf (config.plugins.which-key.enable && config.plugins.harpoon.enable) {
       settings.spec = [
         {
           __unkeyed-1 = "<Leader>h";

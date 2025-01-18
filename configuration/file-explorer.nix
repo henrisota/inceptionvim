@@ -135,7 +135,7 @@
       };
     };
 
-    which-key = lib.mkIf config.plugins.which-key.enable {
+    which-key = lib.mkIf (config.plugins.which-key.enable && config.plugins.neo-tree.enable) {
       settings.spec = [
         {
           mode = "n";
