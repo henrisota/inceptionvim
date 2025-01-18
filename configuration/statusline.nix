@@ -3,19 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  lsp-progress = pkgs.vimUtils.buildVimPlugin {
-    name = "lsp-progress";
-    version = "unstable-2024-07-15";
-    # https://github.com/linrongbin16/lsp-progress.nvim/tree/d5f4d28efe75ce636bfbe271eb45f39689765aab
-    src = pkgs.fetchFromGitHub {
-      owner = "linrongbin16";
-      repo = "lsp-progress.nvim";
-      rev = "d5f4d28efe75ce636bfbe271eb45f39689765aab";
-      hash = "sha256-OafRT5AnxRTOh7MYofRFjti0+pobKQihymZs/kr5w0A=";
-    };
-  };
-in {
+}: {
   autoCmd = [
     {
       event = "User";
@@ -32,7 +20,7 @@ in {
   };
 
   extraPlugins = with pkgs.vimPlugins; [
-    lsp-progress
+    lsp-progress-nvim
   ];
 
   extraConfigLua = ''
@@ -87,9 +75,8 @@ in {
               end
           end
           return ""
-      end,
-    })
-  '';
+      end
+    })'';
 
   plugins = {
     lualine = {
@@ -200,7 +187,7 @@ in {
               {
                 fmt = ''
                   function()
-                   return require("lsp-progress").progress()
+                    return require("lsp-progress").progress()
                   end
                 '';
               }

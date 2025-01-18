@@ -16,6 +16,10 @@
       url = "github:kwkarlwang/bufresize.nvim";
       flake = false;
     };
+    lsp-progress-nvim = {
+      url = "github:linrongbin16/lsp-progress.nvim";
+      flake = false;
+    };
     typr = {
       url = "github:nvzone/typr";
       flake = false;

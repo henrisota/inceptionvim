@@ -240,6 +240,22 @@
         "type": "github"
       }
     },
+    "lsp-progress-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734338835,
+        "narHash": "sha256-WLBNiUzylljTof52+bZgiMIPjzEFeCEq3eSamdo467M=",
+        "owner": "linrongbin16",
+        "repo": "lsp-progress.nvim",
+        "rev": "f3df1df8f5ea33d082db047b5d2d2b83cc01cd8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linrongbin16",
+        "repo": "lsp-progress.nvim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -331,6 +347,7 @@
     "root": {
       "inputs": {
         "bufresize-nvim": "bufresize-nvim",
+        "lsp-progress-nvim": "lsp-progress-nvim",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "snowfall": "snowfall",
