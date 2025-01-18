@@ -6,7 +6,12 @@
   plugins = {
     conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
       settings.formatters_by_ft = {
-        typescript = [["prettierd" "prettier"]];
+        typescript = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          timeout_ms = 2000;
+          stop_after_first = true;
+        };
       };
     };
 
