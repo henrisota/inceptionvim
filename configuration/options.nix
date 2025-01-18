@@ -32,6 +32,8 @@
 
     # History
     undofile = true;
+    swapfile = !config.plugins.undotree.enable;
+    backup = !config.plugins.undotree.enable;
 
     # Search
     ignorecase = true;
