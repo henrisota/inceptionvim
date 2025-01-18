@@ -1,9 +1,9 @@
-self: _: prev: {
+_self: _: prev: {
   vimPlugins = prev.vimPlugins.extend (
     _: _: {
-      bufresize-nvim = prev.pkgs.flak.bufresize-nvim;
-      typr = prev.pkgs.flak.typr;
-      volt = prev.pkgs.flak.volt;
+      inherit (prev.pkgs.flak) bufresize-nvim;
+      inherit (prev.pkgs.flak) typr;
+      inherit (prev.pkgs.flak) volt;
     }
   );
 }

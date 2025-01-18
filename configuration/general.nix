@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
     {
       plugin = typr;

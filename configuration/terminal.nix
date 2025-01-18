@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   keymaps = lib.optionals config.plugins.toggleterm.enable [
