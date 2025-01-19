@@ -48,15 +48,34 @@ _: {
     {
       mode = "n";
       key = "q:";
-      action = "<NOP>";
+      action = "<Nop>";
       options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "q/";
+      action = "<Nop>";
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "q?";
+      action = "<Nop>";
+      options = {
+        noremap = true;
         silent = true;
       };
     }
     {
       mode = "n";
       key = "Q";
-      action = "<NOP>";
+      action = "<Nop>";
       options = {
         noremap = true;
         silent = true;
