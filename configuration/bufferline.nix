@@ -26,7 +26,7 @@
       }
       {
         mode = "n";
-        key = "<C-Tab>";
+        key = "<M-Tab>";
         action = "<Cmd>BufferLineCycleNext<CR>";
         options = {
           desc = "Move to next buffer";
@@ -35,7 +35,7 @@
       }
       {
         mode = "n";
-        key = "<C-S-Tab>";
+        key = "<M-S-Tab>";
         action = "<Cmd>BufferLineCyclePrev<CR>";
         options = {
           desc = "Move to previous buffer";
@@ -110,22 +110,35 @@
 
           sort_by = "extension";
 
-          offsets =
-            (lib.optional config.plugins.neo-tree.enable
-              {
-                filetype = "neo-tree";
-                highlight = "Directory";
-                separator = true;
-                text = "File Explorer";
-                text_align = "left";
-              })
-            ++ (lib.optional config.plugins.diffview.enable
+          truncate_names = true;
+
+          offsets = map (offset:
+            offset
+            // {
+              highlight = "PanelHeading";
+              separator = true;
+              text_align = "left";
+            }) (
+            (lib.optional config.plugins.diffview.enable
               {
                 filetype = "DiffviewFiles";
-                separator = true;
                 text = "Git Diff";
-                text_align = "left";
-              });
+              })
+            ++ (lib.optional config.plugins.neo-tree.enable
+              {
+                filetype = "neo-tree";
+                text = "Explorer";
+              })
+            ++ (lib.optional config.plugins.nvim-tree.enable
+              {
+                filetype = "NvimTree";
+                text = "Explorer";
+              })
+            ++ (lib.optional config.plugins.undotree.enable {
+              filetype = "undotree";
+              text = "Undotree";
+            })
+          );
         };
       };
     };
