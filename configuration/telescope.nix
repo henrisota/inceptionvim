@@ -9,6 +9,8 @@
 
       extensions = {
         fzf-native.enable = true;
+        project.enable = false;
+        undo.enable = false;
       };
 
       keymaps = {
@@ -54,7 +56,7 @@
         };
         "<Leader>fb" = {
           mode = "n";
-          action = "buffers";
+          action = "buffers sort_mru=true sort_lastused=true";
           options = {
             desc = "Find buffer";
             silent = true;
