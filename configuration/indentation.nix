@@ -26,10 +26,12 @@
             ++ (lib.optional config.plugins.diffview.enable "Diffview*")
             ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
             ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
+            ++ (lib.optional config.plugins.nvim-tree.enable "NvimTree")
             ++ (lib.optional config.plugins.noice.enable "noice")
             ++ (lib.optional config.plugins.notify.enable "notify")
             ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
             ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
+            ++ (lib.optional config.plugins.trouble.enable "Trouble")
             ++ (lib.optional config.plugins.undotree.enable "undotree");
         };
         indent = {
