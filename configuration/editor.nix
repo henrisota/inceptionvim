@@ -10,237 +10,6 @@
     register = "unnamedplus";
   };
 
-  keymaps =
-    (
-      lib.optional config.plugins.navbuddy.enable
-      {
-        mode = "n";
-        key = "<Leader>n";
-        action = "<Cmd>Navbuddy<CR>";
-        options = {
-          desc = "󱣱 Navigate";
-          silent = true;
-        };
-      }
-    )
-    ++ (lib.optional (config.plugins.telescope.enable && config.plugins.noice.enable) {
-      mode = "n";
-      key = "<Leader>fm";
-      action = "<Cmd>Telescope noice<CR>";
-      options = {
-        desc = "Find messages";
-        silent = true;
-      };
-    })
-    ++ (lib.optionals config.plugins.neogen.enable [
-      {
-        mode = "n";
-        key = "<Leader>ca";
-        action = "<Cmd>Neogen<CR>";
-        options = {
-          desc = "Annotate";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>caf";
-        action = "<Cmd>Neogen func<CR>";
-        options = {
-          desc = "Annotate function";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>cac";
-        action = "<Cmd>Neogen class<CR>";
-        options = {
-          desc = "Annotate class";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>cat";
-        action = "<Cmd>Neogen type<CR>";
-        options = {
-          desc = "Annotate type";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optionals config.plugins.noice.enable [
-      {
-        mode = "n";
-        key = "<Leader>mh";
-        action = "<Cmd>Noice history<CR>";
-        options = {
-          desc = "List messages";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>ml";
-        action = "<Cmd>Noice last<CR>";
-        options = {
-          desc = "Get last message";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>me";
-        action = "<Cmd>Noice errors<CR>";
-        options = {
-          desc = "List errors";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optionals config.plugins.nvim-ufo.enable [
-      {
-        mode = "n";
-        key = "za";
-        action = "za";
-        options = {
-          desc = "Toggle fold";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "zR";
-        action = "<Cmd>lua require('ufo').openAllFolds()<CR>";
-        options = {
-          desc = "Unfold all";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "zM";
-        action = "<Cmd>lua require('ufo').closeAllFolds()<CR>";
-        options = {
-          desc = "Fold all";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "zK";
-        action = "<Cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>";
-        options = {
-          desc = "Peek lines in fold";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optionals config.plugins.spider.enable [
-      {
-        mode = ["n" "o" "x"];
-        key = "w";
-        action = "<Cmd>lua require('spider').motion('w')<CR>";
-        options = {
-          desc = "w";
-          silent = true;
-        };
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "e";
-        action = "<Cmd>lua require('spider').motion('e')<CR>";
-        options = {
-          desc = "e";
-          silent = true;
-        };
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "b";
-        action = "<Cmd>lua require('spider').motion('b')<CR>";
-        options = {
-          desc = "b";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optionals config.plugins.trouble.enable [
-      {
-        mode = "n";
-        key = "<Leader>xx";
-        action = "<Cmd>TroubleToggle<CR>";
-        options = {
-          desc = "Toggle Trouble";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>xw";
-        action = "<Cmd>TroubleToggle workspace_diagnostics<CR>";
-        options = {
-          desc = "Toggle Trouble workspace diagnostics";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>xd";
-        action = "<Cmd>TroubleToggle document_diagnostics<CR>";
-        options = {
-          desc = "Toggle Trouble document diagnostics";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>xq";
-        action = "<Cmd>TroubleToggle quickfix<CR>";
-        options = {
-          desc = "Toggle Trouble quickfix";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>xl";
-        action = "<Cmd>TroubleToggle lsp_references<CR>";
-        options = {
-          desc = "Toggle Trouble location list";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>xt";
-        action = "<Cmd>TroubleToggle todo<CR>";
-        options = {
-          desc = "Toggle Trouble todo";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optional config.plugins.undotree.enable {
-      mode = "n";
-      key = "<Leader>u";
-      action = "<Cmd>UndotreeToggle<CR>";
-      options = {
-        desc = " Undo tree";
-        silent = true;
-      };
-    })
-    ++ (lib.optional config.plugins.wtf.enable {
-      mode = "n";
-      key = "fd";
-      action = "<Cmd>lua require('wtf').search()<CR>";
-      options = {
-        desc = "Search diagnostic with Google";
-        silent = true;
-      };
-    });
-
   plugins = {
     better-escape = {
       enable = true;
@@ -873,30 +642,224 @@
       };
     };
 
-    which-key = lib.mkIf config.plugins.which-key.enable {
-      settings.spec = [
-        {
-          __unkeyed-1 = "<Leader>c";
-          group = " Create";
-        }
-        {
-          __unkeyed-1 = "<Leader>m";
-          group = " Messages";
-        }
-        {
-          __unkeyed-1 = "<Leader>x";
-          group = " Trouble";
-        }
-        {
-          __unkeyed-1 = "z";
-          group = " Folds";
-        }
-      ];
-    };
-
     wtf = {
       enable = false;
       searchEngine = "google";
+    };
+
+    which-key = lib.mkIf config.plugins.which-key.enable {
+      settings.spec =
+        [
+          {
+            __unkeyed-1 = "<Leader>c";
+            group = "Create";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.neogen.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>ca";
+            __unkeyed-2 = "<Cmd>Neogen<CR>";
+            desc = "Annotate";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>caf";
+            __unkeyed-2 = "<Cmd>Neogen func<CR>";
+            desc = "Annotate function";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>cac";
+            __unkeyed-2 = "<Cmd>Neogen class<CR>";
+            desc = "Annotate class";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>cat";
+            __unkeyed-2 = "<Cmd>Neogen type<CR>";
+            desc = "Annotate type";
+            silent = true;
+          }
+        ])
+        ++ (lib.optional (config.plugins.telescope.enable && config.plugins.noice.enable) {
+          mode = "n";
+          __unkeyed-1 = "<Leader>fm";
+          __unkeyed-2 = "<Cmd>Telescope noice<CR>";
+          desc = "Find messages";
+          silent = true;
+        })
+        ++ (lib.optionals config.plugins.spider.enable [
+          {
+            mode = ["n" "o" "x"];
+            __unkeyed-1 = "w";
+            __unkeyed-2 = "<Cmd>lua require('spider').motion('w')<CR>";
+            desc = "w";
+            silent = true;
+          }
+          {
+            mode = ["n" "o" "x"];
+            __unkeyed-1 = "e";
+            __unkeyed-2 = "<Cmd>lua require('spider').motion('e')<CR>";
+            desc = "e";
+            silent = true;
+          }
+          {
+            mode = ["n" "o" "x"];
+            __unkeyed-1 = "b";
+            __unkeyed-2 = "<Cmd>lua require('spider').motion('b')<CR>";
+            desc = "b";
+            silent = true;
+          }
+        ])
+        ++ (lib.optional config.plugins.undotree.enable {
+          mode = "n";
+          __unkeyed-1 = "<Leader>u";
+          __unkeyed-2 = "<Cmd>UndotreeToggle<CR>";
+          icon = " ";
+          desc = "Undo tree";
+          silent = true;
+        })
+        ++ (lib.optional config.plugins.wtf.enable {
+          mode = "n";
+          __unkeyed-1 = "fd";
+          __unkeyed-2 = "<Cmd>lua require('wtf').search()<CR>";
+          desc = "Search diagnostic with Google";
+          silent = true;
+        })
+        ++ [
+          {
+            __unkeyed-1 = "<Leader>m";
+            group = "Messages";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.noice.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>mh";
+            __unkeyed-2 = "<Cmd>Noice history<CR>";
+            desc = "List messages";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>ml";
+            __unkeyed-2 = "<Cmd>Noice last<CR>";
+            desc = "Get last message";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>me";
+            __unkeyed-2 = "<Cmd>Noice errors<CR>";
+            desc = "List errors";
+            silent = true;
+          }
+        ])
+        ++ (
+          lib.optional config.plugins.navbuddy.enable
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>n";
+            __unkeyed-2 = "<Cmd>Navbuddy<CR>";
+            icon = "󱣱 ";
+            desc = "Navigate";
+            silent = true;
+          }
+        )
+        ++ [
+          {
+            __unkeyed-1 = "<Leader>x";
+            group = "Trouble";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.trouble.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xx";
+            __unkeyed-2 = "<Cmd>TroubleToggle<CR>";
+            desc = "Toggle Trouble";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xw";
+            __unkeyed-2 = "<Cmd>TroubleToggle workspace_diagnostics<CR>";
+            desc = "Toggle Trouble workspace diagnostics";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xd";
+            __unkeyed-2 = "<Cmd>TroubleToggle document_diagnostics<CR>";
+            desc = "Toggle Trouble document diagnostics";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xq";
+            __unkeyed-2 = "<Cmd>TroubleToggle quickfix<CR>";
+            desc = "Toggle Trouble quickfix";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xl";
+            __unkeyed-2 = "<Cmd>TroubleToggle lsp_references<CR>";
+            desc = "Toggle Trouble location list";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>xt";
+            __unkeyed-2 = "<Cmd>TroubleToggle todo<CR>";
+            desc = "Toggle Trouble todo";
+            silent = true;
+          }
+        ])
+        ++ [
+          {
+            __unkeyed-1 = "z";
+            group = "Folds";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.nvim-ufo.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "za";
+            __unkeyed-2 = "za";
+            desc = "Toggle fold";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "zR";
+            __unkeyed-2 = "<Cmd>lua require('ufo').openAllFolds()<CR>";
+            desc = "Unfold all";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "zM";
+            __unkeyed-2 = "<Cmd>lua require('ufo').closeAllFolds()<CR>";
+            desc = "Fold all";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "zK";
+            __unkeyed-2 = "<Cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>";
+            desc = "Peek lines in fold";
+            silent = true;
+          }
+        ]);
     };
   };
 }

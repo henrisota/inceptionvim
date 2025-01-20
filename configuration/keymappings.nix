@@ -1,88 +1,4 @@
 _: {
-  keymaps = [
-    {
-      mode = "n";
-      key = "<Leader>Q";
-      action = "<Cmd>qa<CR>";
-      options = {
-        desc = "Quit all open buffers";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<Leader>w";
-      action = "<Cmd>w<CR>";
-      options = {
-        desc = "Write current buffer";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<Leader>ww";
-      action = "<Cmd>w!<CR>";
-      options = {
-        desc = "Write current buffer forced";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<Leader>wq";
-      action = "<Cmd>wq<CR>";
-      options = {
-        desc = "Write current buffer and quit";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<Leader>wqq";
-      action = "<Cmd>wq!<CR>";
-      options = {
-        desc = "Write current buffer and quit forced";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "q:";
-      action = "<Nop>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "q/";
-      action = "<Nop>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "q?";
-      action = "<Nop>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "Q";
-      action = "<Nop>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-  ];
-
   plugins = {
     which-key = {
       enable = true;
@@ -108,6 +24,7 @@ _: {
           };
           spacing = 3;
         };
+
         plugins = {
           presets = {
             g = true;
@@ -124,16 +41,84 @@ _: {
             suggestions = 10;
           };
         };
+
         show_keys = true;
         triggers_no_wait = ["" "'" "g" "g'" "\"" "<C-r>" "z="];
         triggers_black_list = {
           i = ["j" "k"];
           v = ["j" "k"];
         };
+
         win = {
           padding = [1 2];
           wo.winblend = 0;
         };
+
+        spec = [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>Q";
+            __unkeyed-2 = "<Cmd>qa<CR>";
+            desc = "Quit all open buffers";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>w";
+            __unkeyed-2 = "<Cmd>w<CR>";
+            desc = "Write current buffer";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>ww";
+            __unkeyed-2 = "<Cmd>w!<CR>";
+            desc = "Write current buffer forced";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>wq";
+            __unkeyed-2 = "<Cmd>wq<CR>";
+            desc = "Write current buffer and quit";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>wqq";
+            __unkeyed-2 = "<Cmd>wq!<CR>";
+            desc = "Write current buffer and quit forced";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "q:";
+            __unkeyed-2 = "<Nop>";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "q/";
+            __unkeyed-2 = "<Nop>";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "q?";
+            __unkeyed-2 = "<Nop>";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "Q";
+            __unkeyed-2 = "<Nop>";
+            noremap = true;
+            silent = true;
+          }
+        ];
       };
     };
   };

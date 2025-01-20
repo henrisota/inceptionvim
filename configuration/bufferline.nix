@@ -3,47 +3,6 @@
   lib,
   ...
 }: {
-  keymaps =
-    lib.optionals config.plugins.bufferline.enable
-    [
-      {
-        mode = "n";
-        key = "<Leader>bp";
-        action = "<Cmd>BufferLinePick<CR>";
-        options = {
-          desc = "Pick buffer";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>bc";
-        action = "<Cmd>BufferLineCloseOthers<CR>";
-        options = {
-          desc = "Close all buffers except current";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<M-Tab>";
-        action = "<Cmd>BufferLineCycleNext<CR>";
-        options = {
-          desc = "Move to next buffer";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<M-S-Tab>";
-        action = "<Cmd>BufferLineCyclePrev<CR>";
-        options = {
-          desc = "Move to previous buffer";
-          silent = true;
-        };
-      }
-    ];
-
   plugins = {
     bufferline = {
       enable = true;
@@ -144,12 +103,45 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      settings.spec = [
-        {
-          __unkeyed-1 = "<Leader>b";
-          group = " Buffers";
-        }
-      ];
+      settings.spec =
+        [
+          {
+            __unkeyed-1 = "<Leader>b";
+            group = "Buffers";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.bufferline.enable
+          [
+            {
+              mode = "n";
+              __unkeyed-1 = "<Leader>bp";
+              __unkeyed-2 = "<Cmd>BufferLinePick<CR>";
+              desc = "Pick buffer";
+              silent = true;
+            }
+            {
+              mode = "n";
+              __unkeyed-1 = "<Leader>bc";
+              __unkeyed-2 = "<Cmd>BufferLineCloseOthers<CR>";
+              desc = "Close all buffers except current";
+              silent = true;
+            }
+            {
+              mode = "n";
+              __unkeyed-1 = "<M-Tab>";
+              __unkeyed-2 = "<Cmd>BufferLineCycleNext<CR>";
+              desc = "Move to next buffer";
+              silent = true;
+            }
+            {
+              mode = "n";
+              __unkeyed-1 = "<M-S-Tab>";
+              __unkeyed-2 = "<Cmd>BufferLineCyclePrev<CR>";
+              desc = "Move to previous buffer";
+              silent = true;
+            }
+          ]);
     };
   };
 }

@@ -4,120 +4,6 @@
   pkgs,
   ...
 }: {
-  keymaps =
-    (lib.optionals config.plugins.diffview.enable [
-      {
-        mode = "n";
-        key = "<Leader>gd";
-        action.__raw = ''
-          function()
-            vim.g.diffview_enabled = not vim.g.diffview_enabled
-            if vim.g.diffview_enabled then
-              vim.cmd('DiffviewClose')
-            else
-              vim.cmd('DiffviewOpen')
-            end
-          end
-        '';
-        options = {
-          desc = "Toggle Git Diff";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optionals config.plugins.gitsigns.enable [
-      {
-        mode = "n";
-        key = "<Leader>gp";
-        action = "function() require('gitsigns').preview_hunk_inline() end";
-        options = {
-          desc = "Preview hunk inline";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gP";
-        action = "function() require('gitsigns').preview_inline() end";
-        options = {
-          desc = "Preview hunk";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gs";
-        action = "function() require('gitsigns').stage_hunk() end";
-        options = {
-          desc = "Stage hunk";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gS";
-        action = "function() require('gitsigns').stage_buffer() end";
-        options = {
-          desc = "Stage buffer";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gu";
-        action = "function() require('gitsigns').undo_stage_hunk() end";
-        options = {
-          desc = "Undo stage hunk";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gr";
-        action = "function() require('gitsigns').reset_hunk() end";
-        options = {
-          desc = "Reset hunk";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gR";
-        action = "function() require('gitsigns').reset_buffer() end";
-        options = {
-          desc = "Reset buffer";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gk";
-        action = "function() require('gitsigns').prev_hunk() end";
-        options = {
-          desc = "Jump to previous hunk";
-          silent = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<Leader>gj";
-        action = "function() require('gitsigns').next_hunk() end";
-        options = {
-          desc = "Jump to next hunk";
-          silent = true;
-        };
-      }
-    ])
-    ++ (lib.optional config.plugins.lazygit.enable {
-      mode = "n";
-      key = "<Leader>gg";
-      action = "<Cmd>LazyGit<CR>";
-      options = {
-        desc = "Open LazyGit";
-        silent = true;
-      };
-    });
-
   plugins = {
     diffview = {
       enable = true;
@@ -247,12 +133,104 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      settings.spec = [
-        {
-          __unkeyed-1 = "<Leader>g";
-          group = " Git";
-        }
-      ];
+      settings.spec =
+        [
+          {
+            __unkeyed-1 = "<Leader>g";
+            group = "Git";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.diffview.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gd";
+            __unkeyed-2.__raw = ''
+              function()
+                vim.g.diffview_enabled = not vim.g.diffview_enabled
+                if vim.g.diffview_enabled then
+                  vim.cmd('DiffviewClose')
+                else
+                  vim.cmd('DiffviewOpen')
+                end
+              end
+            '';
+            desc = "Toggle Git Diff";
+            silent = true;
+          }
+        ])
+        ++ (lib.optionals config.plugins.gitsigns.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gp";
+            __unkeyed-2.__raw = "function() require('gitsigns').preview_hunk_inline() end";
+            desc = "Preview hunk inline";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gP";
+            __unkeyed-2.__raw = "function() require('gitsigns').preview_inline() end";
+            desc = "Preview hunk";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gs";
+            __unkeyed-2.__raw = "function() require('gitsigns').stage_hunk() end";
+            desc = "Stage hunk";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gS";
+            __unkeyed-2.__raw = "function() require('gitsigns').stage_buffer() end";
+            desc = "Stage buffer";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gu";
+            __unkeyed-2.__raw = "function() require('gitsigns').undo_stage_hunk() end";
+            desc = "Undo stage hunk";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gr";
+            __unkeyed-2.__raw = "function() require('gitsigns').reset_hunk() end";
+            desc = "Reset hunk";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gR";
+            __unkeyed-2.__raw = "function() require('gitsigns').reset_buffer() end";
+            desc = "Reset buffer";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gk";
+            __unkeyed-2.__raw = "function() require('gitsigns').prev_hunk() end";
+            desc = "Jump to previous hunk";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>gj";
+            __unkeyed-2.__raw = "function() require('gitsigns').next_hunk() end";
+            desc = "Jump to next hunk";
+            silent = true;
+          }
+        ])
+        ++ (lib.optional config.plugins.lazygit.enable {
+          mode = "n";
+          __unkeyed-1 = "<Leader>gg";
+          __unkeyed-2 = "<Cmd>LazyGit<CR>";
+          desc = "Open LazyGit";
+          silent = true;
+        });
     };
   };
 }

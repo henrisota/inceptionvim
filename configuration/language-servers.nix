@@ -4,18 +4,6 @@
   pkgs,
   ...
 }: {
-  keymaps =
-    lib.optional config.plugins.telescope.enable
-    {
-      mode = "n";
-      key = "<Leader>lr";
-      action = "<Cmd>Telescope lsp_references<CR>";
-      options = {
-        desc = "List LSP references";
-        silent = true;
-      };
-    };
-
   # https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#automatically-run-slow-formatters-async
   extraConfigLuaPre = ''
     local slow_format_filetypes = {}
@@ -125,12 +113,24 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      settings.spec = [
-        {
-          __unkeyed-1 = "<Leader>l";
-          group = " LSP";
-        }
-      ];
+      settings.spec =
+        [
+          {
+            __unkeyed-1 = "<Leader>l";
+            group = "LSP";
+            icon = " ";
+          }
+        ]
+        ++ (
+          lib.optional (config.plugins.telescope.enable && config.plugins.lsp.enable)
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>lr";
+            __unkeyed-2 = "<Cmd>Telescope lsp_references<CR>";
+            desc = "List LSP references";
+            silent = true;
+          }
+        );
     };
   };
 }

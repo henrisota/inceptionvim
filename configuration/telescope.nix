@@ -13,65 +13,6 @@
         undo.enable = false;
       };
 
-      keymaps = {
-        "<Leader>ff" = {
-          mode = "n";
-          action = "find_files hidden=true";
-          options = {
-            desc = "Find files";
-            silent = true;
-          };
-        };
-        "<Leader>fg" = {
-          mode = "n";
-          action = "live_grep";
-          options = {
-            desc = "Find in files";
-            silent = true;
-          };
-        };
-        "<Leader>fz" = {
-          mode = "n";
-          action = "current_buffer_fuzzy_find";
-          options = {
-            desc = "Find in current buffer";
-            silent = true;
-          };
-        };
-        "<Leader>fr" = {
-          mode = "n";
-          action = "oldfiles";
-          options = {
-            desc = "Recent files";
-            silent = true;
-          };
-        };
-        "<Leader>fw" = {
-          mode = "n";
-          action = "grep_string";
-          options = {
-            desc = "Search word under cursor";
-            silent = true;
-          };
-        };
-        "<Leader>fb" = {
-          mode = "n";
-          action = "buffers sort_mru=true sort_lastused=true";
-          options = {
-            desc = "Find buffer";
-            silent = true;
-          };
-        };
-        "<Leader>fc" = {
-          mode = "n";
-          action = "command_history";
-          options = {
-            desc = "Search in command history";
-            silent = true;
-          };
-        };
-      };
-
       settings = {
         defaults = {
           file_ignore_patterns = [
@@ -95,12 +36,72 @@
     };
 
     which-key = lib.mkIf config.plugins.which-key.enable {
-      settings.spec = [
-        {
-          __unkeyed-1 = "<Leader>f";
-          group = " Finder";
-        }
-      ];
+      settings.spec =
+        [
+          {
+            __unkeyed-1 = "<Leader>f";
+            group = "Finder";
+            icon = " ";
+          }
+        ]
+        ++ (lib.optionals config.plugins.telescope.enable [
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>ff";
+            __unkeyed-2 = "<Cmd>Telescope find_files hidden=true<CR>";
+            icon = " ";
+            desc = "Find files";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fg";
+            __unkeyed-2 = "<Cmd>Telescope live_grep<CR>";
+            icon = " ";
+            desc = "Find in files";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fz";
+            __unkeyed-2 = "<Cmd>Telescope current_buffer_fuzzy_find<CR>";
+            icon = " ";
+            desc = "Find in current buffer";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fr";
+            __unkeyed-2 = "<Cmd>Telescope oldfiles<CR>";
+            icon = " ";
+            desc = "Recent files";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fw";
+            __unkeyed-2 = "<Cmd>Telescope grep_string<CR>";
+            icon = " ";
+            desc = "Search word under cursor";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fb";
+            __unkeyed-2 = "<Cmd>Telescope buffers sort_mru=true sort_lastused=true<CR>";
+            icon = " ";
+            desc = "Find buffer";
+            silent = true;
+          }
+          {
+            mode = "n";
+            __unkeyed-1 = "<Leader>fc";
+            __unkeyed-2 = "<Cmd>Telescope command_history<CR>";
+            icon = " ";
+            desc = "Search in command history";
+            silent = true;
+          }
+        ]);
     };
   };
 }
