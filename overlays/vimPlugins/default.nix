@@ -5,6 +5,7 @@ _self: _: prev: {
         (prev.pkgs.flak)
         bufresize-nvim
         lsp-progress-nvim
+        navigator-nvim
         typr
         volt
         ;

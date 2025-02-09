@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "navigator-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731349574,
+        "narHash": "sha256-zwZgqgIZNmMUVcGibfWWbyzI9plfEFWVFwT366xGGMg=",
+        "owner": "dynamotn",
+        "repo": "Navigator.nvim",
+        "rev": "d43816089689ccffd23543bc02331e9a68f3ec2f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dynamotn",
+        "repo": "Navigator.nvim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -348,6 +364,7 @@
       "inputs": {
         "bufresize-nvim": "bufresize-nvim",
         "lsp-progress-nvim": "lsp-progress-nvim",
+        "navigator-nvim": "navigator-nvim",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "snowfall": "snowfall",

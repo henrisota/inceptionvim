@@ -20,6 +20,10 @@
       url = "github:linrongbin16/lsp-progress.nvim";
       flake = false;
     };
+    navigator-nvim = {
+      url = "github:dynamotn/Navigator.nvim";
+      flake = false;
+    };
     typr = {
       url = "github:nvzone/typr";
       flake = false;
