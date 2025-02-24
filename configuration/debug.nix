@@ -12,64 +12,6 @@
     dap = {
       enable = false;
 
-      extensions = {
-        dap-ui = {
-          enable = false;
-          controls = {
-            enabled = true;
-            element = "repl";
-          };
-          expandLines = true;
-          forceBuffers = true;
-          layouts = [
-            {
-              elements = [
-                {
-                  id = "stacks";
-                  size = 0.20;
-                }
-                {
-                  id = "scopes";
-                  size = 0.80;
-                }
-              ];
-              position = "bottom";
-              size = 20;
-            }
-            {
-              elements = [
-                {
-                  id = "repl";
-                  size = 0.80;
-                }
-                {
-                  id = "console";
-                  size = 0.20;
-                }
-              ];
-              position = "bottom";
-              size = 20;
-            }
-            {
-              elements = [
-                {
-                  id = "breakpoints";
-                  size = 0.50;
-                }
-                {
-                  id = "watches";
-                  size = 0.50;
-                }
-              ];
-              position = "bottom";
-              size = 20;
-            }
-          ];
-        };
-
-        dap-virtual-text.enable = false;
-      };
-
       signs = {
         dapBreakpoint.text = " ";
         dapBreakpointCondition.text = " ";
@@ -78,6 +20,65 @@
         dapStopped.text = "󰁕 ";
       };
     };
+
+    dap-ui = {
+      enable = false;
+
+      settings = {
+        controls = {
+          enabled = true;
+          element = "repl";
+        };
+        expandLines = true;
+        force_buffers = true;
+        layouts = [
+          {
+            elements = [
+              {
+                id = "stacks";
+                size = 0.20;
+              }
+              {
+                id = "scopes";
+                size = 0.80;
+              }
+            ];
+            position = "bottom";
+            size = 20;
+          }
+          {
+            elements = [
+              {
+                id = "repl";
+                size = 0.80;
+              }
+              {
+                id = "console";
+                size = 0.20;
+              }
+            ];
+            position = "bottom";
+            size = 20;
+          }
+          {
+            elements = [
+              {
+                id = "breakpoints";
+                size = 0.50;
+              }
+              {
+                id = "watches";
+                size = 0.50;
+              }
+            ];
+            position = "bottom";
+            size = 20;
+          }
+        ];
+      };
+    };
+
+    dap-virtual-text.enable = false;
 
     which-key = lib.mkIf config.plugins.which-key.enable {
       settings.spec = [
