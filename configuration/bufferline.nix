@@ -124,19 +124,26 @@
               mode = "n";
               __unkeyed-1 = "<Leader>bc";
               __unkeyed-2 = "<Cmd>BufferLineCloseOthers<CR>";
-              desc = "Close all buffers except current";
+              desc = "Delete all buffers except current";
               silent = true;
             }
             {
               mode = "n";
-              __unkeyed-1 = "<M-Tab>";
+              __unkeyed-1 = "<Leader>bd";
+              __unkeyed-2 = "<Cmd>bdelete<CR>";
+              desc = "Delete current buffer";
+              silent = true;
+            }
+            {
+              mode = "n";
+              __unkeyed-1 = "<C-Tab>";
               __unkeyed-2 = "<Cmd>BufferLineCycleNext<CR>";
               desc = "Move to next buffer";
               silent = true;
             }
             {
               mode = "n";
-              __unkeyed-1 = "<M-S-Tab>";
+              __unkeyed-1 = "<C-S-Tab>";
               __unkeyed-2 = "<Cmd>BufferLineCyclePrev<CR>";
               desc = "Move to previous buffer";
               silent = true;
