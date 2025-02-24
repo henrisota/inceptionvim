@@ -92,7 +92,7 @@ This configuration utilizes the following plugins
 | [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor) | ✓ | [neogen](https://github.com/danymat/neogen) | ✗ |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | ✓ | [nvim-notify](https://github.com/rcarriga/nvim-notify) | ✓ |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | ✓ | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) | ✓ |
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✓ |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | ✓ | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | ✗ |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | ✓ | [nvim-spider](https://github.com/chrisgrieser/nvim-spider) | ✓ |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | ✗ | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | ✗ |
 | [wtf.nvim](https://github.com/piersolenski/wtf.nvim) | ✗ | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | ✓ |

@@ -11,7 +11,7 @@
     }
   ];
 
-  extraConfigLua = ''
+  extraConfigLua = lib.mkIf config.plugins.smart-splits.enable ''
     require('smart-splits').setup({
       resize_mode = {
         hooks = {
@@ -107,7 +107,7 @@
 
   plugins = {
     smart-splits = {
-      enable = true;
+      enable = false;
       settings = {
         at_edge = "stop";
         default_amount = 3;
