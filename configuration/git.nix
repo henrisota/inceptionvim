@@ -82,8 +82,6 @@
           col = 1;
         };
 
-        show_deleted = false;
-
         sign_priority = 6;
         signcolumn = true;
         signs = {
