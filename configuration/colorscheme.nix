@@ -7,6 +7,10 @@
     catppuccin = {
       enable = true;
       settings = {
+        background = {
+          light = "macchiato";
+          dark = "mocha";
+        };
         flavour = "mocha";
         transparent_background = true;
         term_colors = true;
@@ -25,6 +29,7 @@
           indent_blankline.enabled = config.plugins.indent-blankline.enable;
           leap = config.plugins.leap.enable;
           mini.enabled = config.plugins.mini.enable;
+          native_lsp.enabled = config.plugins.lsp.enable;
           navic = {
             enabled = config.plugins.navic.enable;
             custom_bg = lib.mkIf config.plugins.lualine.enable "lualine";
@@ -36,6 +41,7 @@
           notify = config.plugins.notify.enable;
           telescope.enabled = config.plugins.telescope.enable;
           treesitter = config.plugins.treesitter.enable;
+          treesitter_context = config.plugins.treesitter.enable;
           which_key = config.plugins.which-key.enable;
         };
       };
