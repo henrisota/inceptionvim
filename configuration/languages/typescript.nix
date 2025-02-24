@@ -17,7 +17,8 @@
 
     lint = lib.mkIf config.plugins.lint.enable {
       lintersByFt = {
-        typescript = ["eslint"];
+        typescript = ["eslint_d"];
+        typescriptreact = ["eslint_d"];
       };
     };
 

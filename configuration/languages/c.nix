@@ -12,7 +12,7 @@
 
     lint = lib.mkIf config.plugins.lint.enable {
       lintersByFt = {
-        c = ["cppcheck"];
+        c = ["cpplint"];
       };
     };
 
