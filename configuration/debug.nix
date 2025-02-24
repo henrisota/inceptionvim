@@ -6,6 +6,7 @@
   # TODO: Configure debugging keymaps
   # https://github.com/kevinlmadison/nix-configs/blob/e09c4e1e52bc7f0d0d8a805bb986238cb8be55b3/home/nixvim/keymaps.nix#L231
   # https://github.com/hmajid2301/dotfiles/blob/750cc6323058720c9e2700c254cd69b8fe9da077/modules/home/cli/editors/nvim/plugins/debug.nix#L101
+  # https://github.com/redyf/Neve/blob/cdd3342b011396ac0dc0a54ce76c28907422fa26/config/dap/nvim-dap.nix#L7
   keymaps = [];
 
   plugins = {
