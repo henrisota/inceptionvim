@@ -140,7 +140,7 @@
         {
           mode = "n";
           __unkeyed-1 = "<Leader>e";
-          __unkeyed-2 = "<Cmd>Neotree action=focus reveal toggle<CR>";
+          __unkeyed-2 = "<Cmd>Neotree action=focus source=filesystem reveal toggle<CR>";
           icon = "󰥨 ";
           desc = "Explorer";
           silent = true;
