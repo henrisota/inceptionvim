@@ -50,7 +50,8 @@ _: {
         };
 
         win = {
-          padding = [1 2];
+          border = "single";
+          padding = [1 1];
           wo.winblend = 0;
         };
 
