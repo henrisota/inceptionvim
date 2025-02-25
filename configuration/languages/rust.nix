@@ -22,6 +22,15 @@
           enable = true;
           installCargo = false;
           installRustc = false;
+          settings = {
+            checkOnSave = true;
+            check = {
+              command = "clippy";
+            };
+            procMacro = {
+              enable = true;
+            };
+          };
         };
       };
     };

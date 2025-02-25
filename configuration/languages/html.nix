@@ -4,6 +4,16 @@
   ...
 }: {
   plugins = {
+    conform-nvim = lib.mkIf config.plugins.conform-nvim.enable {
+      settings.formatters_by_ft = {
+        html = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+      };
+    };
+
     lsp = lib.mkIf config.plugins.lsp.enable {
       servers = {
         html = {

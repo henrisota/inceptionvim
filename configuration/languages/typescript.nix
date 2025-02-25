@@ -12,13 +12,19 @@
           timeout_ms = 2000;
           stop_after_first = true;
         };
+        typescriptreact = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          timeout_ms = 2000;
+          stop_after_first = true;
+        };
       };
     };
 
     lint = lib.mkIf config.plugins.lint.enable {
       lintersByFt = {
-        typescript = ["eslint_d"];
-        typescriptreact = ["eslint_d"];
+        typescript = ["eslint"];
+        typescriptreact = ["eslint"];
       };
     };
 
@@ -29,6 +35,41 @@
         };
         ts_ls = {
           enable = true;
+          autostart = true;
+          filetypes = [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+          ];
+          extraOptions = {
+            settings = {
+              javascript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true;
+                  includeInlayFunctionLikeReturnTypeHints = true;
+                  includeInlayFunctionParameterTypeHints = true;
+                  includeInlayParameterNameHints = "all";
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                  includeInlayPropertyDeclarationTypeHints = true;
+                  includeInlayVariableTypeHints = true;
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = true;
+                };
+              };
+              typescript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true;
+                  includeInlayFunctionLikeReturnTypeHints = true;
+                  includeInlayFunctionParameterTypeHints = true;
+                  includeInlayParameterNameHints = "all";
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                  includeInlayPropertyDeclarationTypeHints = true;
+                  includeInlayVariableTypeHints = true;
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = true;
+                };
+              };
+            };
+          };
         };
       };
     };
