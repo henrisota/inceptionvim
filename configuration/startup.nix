@@ -6,8 +6,8 @@
   header = [
     "███████╗██╗      █████╗ ██╗  ██╗"
     "██╔════╝██║     ██╔══██╗██║ ██╔╝"
-    "█████╗  ██║     ███████║█████═╝"
-    "██╔══╝  ██║     ██╔══██║██╔═██╗"
+    "█████╗  ██║     ███████║█████═╝ "
+    "██╔══╝  ██║     ██╔══██║██╔═██╗ "
     "██║     ███████╗██║  ██║██║ ╚██╗"
     "╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝"
   ];
@@ -15,58 +15,79 @@
 in {
   plugins = {
     alpha = {
-      enable = false;
+      enable = true;
 
       iconsEnabled = true;
-      layout = [
-        {
+      layout = let
+        padding = val: {
           type = "padding";
-          val = 2;
-        }
+          inherit val;
+        };
+      in [
+        (padding 4)
         {
           opts = {
-            hl = "Type";
+            hl = "AlphaHeader";
             position = "center";
           };
           type = "text";
           val = header;
         }
+        (padding 2)
         {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            position = "center";
+          type = "button";
+          val = "  New File";
+          on_press = {
+            __raw = "function() vim.cmd[[ene]] end";
           };
-          type = "group";
-          val = [
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[ene]] end";
-              };
-              opts = {
-                shortcut = "n";
-              };
-              type = "button";
-              val = "  New file";
-            }
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[qa]] end";
-              };
-              opts = {
-                shortcut = "q";
-              };
-              type = "button";
-              val = "󰅚 Quit Neovim";
-            }
-          ];
+          opts = {
+            keymap = [
+              "n"
+              "n"
+              ":ene <BAR> startinsert <CR>"
+              {
+                noremap = true;
+                silent = true;
+                nowait = true;
+              }
+            ];
+            shortcut = "n";
+
+            position = "center";
+            cursor = 3;
+            width = 38;
+            align_shortcut = "right";
+            hl_shortcut = "Keyword";
+          };
         }
+        (padding 1)
         {
-          type = "padding";
-          val = 2;
+          type = "button";
+          val = "󰅚  Quit Neovim";
+          on_press = {
+            __raw = "function() vim.cmd[[qa]] end";
+          };
+          opts = {
+            keymap = [
+              "n"
+              "q"
+              ":qa<CR>"
+              {
+                noremap = true;
+                silent = true;
+                nowait = true;
+              }
+            ];
+            shortcut = "q";
+
+            position = "center";
+            cursor = 3;
+            width = 38;
+            align_shortcut = "right";
+            hl_shortcut = "Keyword";
+          };
         }
+        (padding 2)
         {
           opts = {
             hl = "Keyword";
@@ -79,7 +100,7 @@ in {
     };
 
     dashboard = {
-      enable = true;
+      enable = false;
       settings = {
         change_to_vcs_root = false;
 
