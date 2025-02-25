@@ -17,7 +17,6 @@ in {
     alpha = {
       enable = true;
 
-      iconsEnabled = true;
       layout = let
         padding = val: {
           type = "padding";
