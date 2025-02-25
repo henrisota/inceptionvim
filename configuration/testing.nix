@@ -15,16 +15,15 @@
           silent = true;
         };
       }
-      # FIX: Look into alternative method or command
-      # {
-      #   mode = "n";
-      #   key = "<Leader>aT";
-      #   action = "<Cmd>lua require('neotest').run.run(vim.loop.cwd())<CR>";
-      #   options = {
-      #     silent = true;
-      #     desc = "Test all files";
-      #   };
-      # }
+      {
+        mode = "n";
+        key = "<Leader>aT";
+        action = "<Cmd>lua require('neotest').run.run(vim.loop.cwd())<CR>";
+        options = {
+          silent = true;
+          desc = "Test all files";
+        };
+      }
       {
         mode = "n";
         key = "<Leader>ar";
@@ -37,7 +36,7 @@
       {
         mode = "n";
         key = "<Leader>aS";
-        action = "<Cmd>lua require('neotest').stop()<CR>";
+        action = "<Cmd>lua require('neotest').run.stop()<CR>";
         options = {
           desc = "Stop tests";
           silent = true;
@@ -66,7 +65,7 @@
         key = "<Leader>aO";
         action = "<Cmd>lua require('neotest').output_panel.toggle()<CR>";
         options = {
-          desc = "Toggle test output";
+          desc = "Toggle test output panel";
           silent = true;
         };
       }
