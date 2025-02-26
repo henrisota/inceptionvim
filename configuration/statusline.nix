@@ -95,8 +95,8 @@
             end
           '';
         };
-        progressComponent = {
-          __unkeyed-1 = "progress";
+        emptyComponent = {
+          __unkeyed-1 = "empty";
           padding = {
             left = 0;
             right = 0;
@@ -224,7 +224,7 @@
             ];
 
           lualine_y = [
-            progressComponent
+            emptyComponent
           ];
 
           lualine_z = [
