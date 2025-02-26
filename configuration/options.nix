@@ -35,7 +35,7 @@
     backup = !config.plugins.undotree.enable;
 
     # Completion
-    ompleteopt = [
+    completeopt = [
       "menuone"
       "noselect"
       "noinsert"

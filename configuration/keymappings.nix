@@ -8,7 +8,7 @@ _: {
 
         icons = {
           breadcrumb = "»";
-          group = "+";
+          group = "";
           separator = "➜";
         };
 
@@ -58,9 +58,10 @@ _: {
         spec = [
           {
             mode = "n";
-            __unkeyed-1 = "<Leader>Q";
+            __unkeyed-1 = "<Leader>q";
             __unkeyed-2 = "<Cmd>qa<CR>";
             desc = "Quit all open buffers";
+            noremap = true;
             silent = true;
           }
           {
@@ -68,6 +69,7 @@ _: {
             __unkeyed-1 = "<Leader>w";
             __unkeyed-2 = "<Cmd>w<CR>";
             desc = "Write current buffer";
+            noremap = true;
             silent = true;
           }
           {
@@ -75,20 +77,87 @@ _: {
             __unkeyed-1 = "<Leader>ww";
             __unkeyed-2 = "<Cmd>w!<CR>";
             desc = "Write current buffer forced";
+            noremap = true;
             silent = true;
           }
           {
-            mode = "n";
-            __unkeyed-1 = "<Leader>wq";
-            __unkeyed-2 = "<Cmd>wq<CR>";
-            desc = "Write current buffer and quit";
+            mode = ["n" "v" "x"];
+            __unkeyed-1 = "<C-a>";
+            __unkeyed-2 = "gg0vG$";
+            desc = "Select all";
+            noremap = true;
             silent = true;
           }
           {
-            mode = "n";
-            __unkeyed-1 = "<Leader>wqq";
-            __unkeyed-2 = "<Cmd>wq!<CR>";
-            desc = "Write current buffer and quit forced";
+            mode = ["n" "v" "x"];
+            __unkeyed-1 = "<Leader>y";
+            __unkeyed-2 = "\"+y";
+            desc = "Copy";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v" "x"];
+            __unkeyed-1 = "<Leader>yy";
+            __unkeyed-2 = "\"+Y";
+            desc = "Copy line";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v" "x"];
+            __unkeyed-1 = "<Leader>Y";
+            __unkeyed-2 = "\"+yy";
+            desc = "Copy line";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v"];
+            __unkeyed-1 = "<Leader>d";
+            __unkeyed-2 = "\"+d";
+            desc = "Delete";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v"];
+            __unkeyed-1 = "<Leader>D";
+            __unkeyed-2 = "\"+D";
+            desc = "Delete line";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v"];
+            __unkeyed-1 = "<Leader>p";
+            __unkeyed-2 = "\"+p";
+            desc = "Paste";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["n" "v"];
+            __unkeyed-1 = "<Leader>P";
+            __unkeyed-2 = "\"+P";
+            desc = "Paste before";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["x"];
+            __unkeyed-1 = "<Leader>P";
+            __unkeyed-2 = "\"_dP";
+            desc = "Paste without erasing";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = ["i"];
+            __unkeyed-1 = "<C-p>";
+            __unkeyed-2 = "<C-r><C-p>+";
+            desc = "Paste";
+            noremap = true;
             silent = true;
           }
           {
