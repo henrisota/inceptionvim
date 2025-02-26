@@ -267,6 +267,9 @@
 
     notify = {
       enable = true;
+      fps = 60;
+      render = "default";
+      topDown = true;
     };
 
     noice = {

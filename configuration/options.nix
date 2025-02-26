@@ -34,6 +34,13 @@
     swapfile = !config.plugins.undotree.enable;
     backup = !config.plugins.undotree.enable;
 
+    # Completion
+    ompleteopt = [
+      "menuone"
+      "noselect"
+      "noinsert"
+    ];
+
     # Search
     ignorecase = true;
     smartcase = true;
@@ -53,13 +60,13 @@
     splitright = true;
 
     # Tab
-    softtabstop = 4;
-    tabstop = 4;
+    softtabstop = 2;
+    tabstop = 2;
     expandtab = true;
 
     # Indentation
     autoindent = false;
-    shiftwidth = 4;
+    shiftwidth = 2;
     smartindent = true;
     breakindent = true;
 
@@ -79,7 +86,7 @@
     timeout = true;
     timeoutlen = 250;
 
-    updatetime = 100;
+    updatetime = 50;
 
     # Folding
     foldenable = true;
