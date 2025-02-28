@@ -12,6 +12,7 @@
     "╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝"
   ];
   footer = ["flak plak"];
+  width = 32;
 in {
   plugins = {
     alpha = {
@@ -54,7 +55,7 @@ in {
 
             position = "center";
             cursor = 3;
-            width = 38;
+            inherit width;
             align_shortcut = "right";
             hl_shortcut = "Keyword";
           };
@@ -81,7 +82,7 @@ in {
 
             position = "center";
             cursor = 3;
-            width = 38;
+            inherit width;
             align_shortcut = "right";
             hl_shortcut = "Keyword";
           };
