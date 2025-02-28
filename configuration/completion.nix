@@ -14,6 +14,9 @@
           ghost_text = true;
         };
 
+        completion.completeopt = "noselect";
+        preselect = "None";
+
         mapping = {
           "<C-e>" = "cmp.mapping.close()";
           "<CR>" = "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";

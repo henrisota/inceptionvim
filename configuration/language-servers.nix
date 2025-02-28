@@ -19,12 +19,14 @@
       desc = "Disable autoformat-on-save",
       bang = true,
     })
+
     vim.api.nvim_create_user_command("FormatEnable", function()
       vim.b.disable_autoformat = false
       vim.g.disable_autoformat = false
     end, {
       desc = "Re-enable autoformat-on-save",
     })
+
     vim.api.nvim_create_user_command("FormatToggle", function(args)
       if args.bang then
         -- Toggle formatting for current buffer
