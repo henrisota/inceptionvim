@@ -787,6 +787,13 @@
           }
           {
             mode = "n";
+            __unkeyed-1 = "<Leader>mc";
+            __unkeyed-2 = "<Cmd>Noice dismiss<CR>";
+            desc = "Clear messages";
+            silent = true;
+          }
+          {
+            mode = "n";
             __unkeyed-1 = "<Leader>me";
             __unkeyed-2 = "<Cmd>Noice errors<CR>";
             desc = "List errors";
@@ -804,14 +811,12 @@
             silent = true;
           }
         )
-        ++ [
+        ++ (lib.optionals config.plugins.trouble.enable [
           {
             __unkeyed-1 = "<Leader>x";
             group = "Trouble";
             icon = " ";
           }
-        ]
-        ++ (lib.optionals config.plugins.trouble.enable [
           {
             mode = "n";
             __unkeyed-1 = "<Leader>xx";
