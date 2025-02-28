@@ -183,6 +183,13 @@ _: {
           }
           {
             mode = "n";
+            __unkeyed-1 = "q";
+            __unkeyed-2 = "<Nop>";
+            noremap = true;
+            silent = true;
+          }
+          {
+            mode = "n";
             __unkeyed-1 = "Q";
             __unkeyed-2 = "<Nop>";
             noremap = true;
