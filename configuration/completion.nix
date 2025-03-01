@@ -20,24 +20,8 @@
         mapping = {
           "<C-e>" = "cmp.mapping.close()";
           "<CR>" = "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
-          "<Tab>" = ''
-            cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select })
-              else
-                fallback()
-              end
-            end, { "i", "s" })
-          '';
-          "<S-Tab>" = ''
-            cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-              else
-                fallback()
-              end
-            end, { "i", "s" })
-          '';
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i', 's'})";
         };
 
         performance = {
