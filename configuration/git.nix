@@ -48,7 +48,6 @@
 
     gitsigns = {
       enable = true;
-      gitPackage = null;
 
       settings = {
         current_line_blame = true;

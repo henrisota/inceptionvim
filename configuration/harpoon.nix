@@ -8,50 +8,13 @@
       enable = true;
 
       enableTelescope = config.plugins.telescope.enable;
-      enterOnSendcmd = false;
 
-      excludedFiletypes =
-        [
-          "checkhealth"
-          "harpoon"
-          "help"
-          "netrw"
-        ]
-        ++ (lib.optional config.plugins.alpha.enable "alpha")
-        ++ (lib.optionals config.plugins.cmp.enable ["cmp_menu" "cmp_docs"])
-        ++ (lib.optional config.plugins.dashboard.enable "dashboard")
-        ++ (lib.optional config.plugins.diffview.enable "Diffview*")
-        ++ (lib.optional config.plugins.lsp.enable "lspinfo*")
-        ++ (lib.optional config.plugins.neo-tree.enable "neo-tree")
-        ++ (lib.optional config.plugins.noice.enable "noice")
-        ++ (lib.optional config.plugins.notify.enable "notify")
-        ++ (lib.optionals config.plugins.telescope.enable ["TelescopePrompt" "TelescopeResults"])
-        ++ (lib.optional config.plugins.toggleterm.enable "toggleterm")
-        ++ (lib.optional config.plugins.undotree.enable "undotree");
-
-      keymaps = {
-        addFile = "<Leader>ha";
-        toggleQuickMenu = "<Leader>he";
-        navFile = {
-          "1" = "<Leader>hj";
-          "2" = "<Leader>hk";
-          "3" = "<Leader>hl";
-          "4" = "<Leader>hm";
+      settings = {
+        settings = {
+          save_on_toggle = true;
+          sync_on_ui_close = true;
         };
       };
-
-      keymapsSilent = true;
-      markBranch = false;
-
-      menu = {
-        borderChars = ["─" "│" "─" "│" "╭" "╮" "╯" "╰"];
-      };
-
-      projects = {};
-
-      saveOnChange = true;
-      saveOnToggle = true;
-      tmuxAutocloseWindows = false;
     };
 
     which-key = lib.mkIf (config.plugins.which-key.enable && config.plugins.harpoon.enable) {
@@ -72,4 +35,41 @@
       ];
     };
   };
+
+  keymaps = lib.mkIf config.plugins.harpoon.enable (
+    [
+      {
+        mode = "n";
+        key = "<Leader>ha";
+        action.__raw = "function() require('harpoon'):list():add() end";
+        options = {
+          silent = true;
+          desc = "Harpoon add file";
+        };
+      }
+      {
+        mode = "n";
+        key = "<Leader>he";
+        action.__raw = "function() local harpoon = require('harpoon') harpoon.ui:toggle_quick_menu(harpoon:list()) end";
+        options = {
+          silent = true;
+          desc = "Harpoon toggle quick menu";
+        };
+      }
+    ]
+    ++ (lib.mapAttrsToList (key: index: {
+        mode = "n";
+        inherit key;
+        action.__raw = "function() require('harpoon'):list():select(${toString index}) end";
+        options = {
+          silent = true;
+          desc = "Harpoon file ${toString index}";
+        };
+      }) {
+        "<Leader>hj" = 1;
+        "<Leader>hk" = 2;
+        "<Leader>hl" = 3;
+        "<Leader>hm" = 4;
+      })
+  );
 }

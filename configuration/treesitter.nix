@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   plugins = {
     treesitter = {
       enable = true;
@@ -18,32 +22,6 @@
           node_incremental = "<C-space>";
           node_decremental = "<BS>";
         };
-      };
-    };
-
-    # TODO: Change mappings for navigation
-    treesitter-refactor = {
-      enable = true;
-
-      highlightCurrentScope.enable = false; # Disabled in favor of indent-blankline
-      highlightDefinitions = {
-        enable = false; # Disabled in favor of illuminate
-        clearOnCursorMove = config.opts.updatetime > 100;
-      };
-      navigation = {
-        enable = true;
-        keymaps = {
-          #  gotoDefinitionLspFallback = null;   # Fallback to `vim.lsp.buf.definition`. Use custom callback func if create mapping of "lua require('nvim-treesitter').refactor.navigation(nil,fallback_function)<CR>";
-          #  gotoDefinition = "gnd";             # Go to symbol under cursor
-          #  gotoNextUsage = "<A-*>";            # Go to next     usage of identifier
-          #  gotoPrevUsage = "<A-#>";            # Go to previous usage of identifier
-          listDefinitions = "gnD"; # List all definitions from current file
-          #  listDefinitionsToc = "g0";          # List all definitions from current file like table of contents
-        };
-      };
-      smartRename = {
-        enable = true;
-        # keymaps.smartRename = "grr";
       };
     };
 
@@ -103,4 +81,19 @@
       };
     };
   };
+
+  keymaps = lib.mkIf config.plugins.lsp.enable [
+    {
+      mode = "n";
+      key = "gnD";
+      action =
+        if config.plugins.telescope.enable
+        then "<Cmd>Telescope lsp_document_symbols<CR>"
+        else "<Cmd>lua vim.lsp.buf.document_symbol()<CR>";
+      options = {
+        silent = true;
+        desc = "List definitions in current file";
+      };
+    }
+  ];
 }

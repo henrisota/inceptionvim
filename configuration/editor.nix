@@ -1,12 +1,16 @@
 {
   config,
-  helpers,
   lib,
   pkgs,
   ...
 }: {
   clipboard = {
-    providers.wl-copy.enable = lib.mkIf pkgs.stdenv.isDarwin true;
+    # `wl-copy` is Wayland-only and its closure does not evaluate on Darwin;
+    # macOS uses `pbcopy` instead.
+    providers = {
+      pbcopy.enable = pkgs.stdenv.isDarwin;
+      wl-copy.enable = pkgs.stdenv.isLinux;
+    };
     register = "unnamedplus";
   };
 
@@ -150,8 +154,6 @@
 
     navbuddy = {
       enable = true;
-
-      keymapsSilent = true;
 
       lsp = {
         autoAttach = true;
@@ -543,7 +545,7 @@
         provider_selector = ''
           function(bufnr, filetype, buftype)
             return ${
-            helpers.toLuaObject
+            lib.nixvim.toLuaObject
             (
               (
                 if config.plugins.treesitter.enable
