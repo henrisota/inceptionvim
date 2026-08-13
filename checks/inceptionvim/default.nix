@@ -8,6 +8,6 @@ inputs.nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule {
   inherit pkgs;
 
   module = {
-    imports = lib.snowfall.fs.get-non-default-nix-files-recursive ../../packages/inceptionvim;
+    imports = (import ../../nix/fs.nix {inherit lib;}).getNonDefaultNixFilesRecursive ../../packages/inceptionvim;
   };
 }

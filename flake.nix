@@ -3,12 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    snowfall = {
-      url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,37 +30,42 @@
     };
   };
 
-  outputs = inputs: let
-    lib = inputs.snowfall.mkLib {
-      inherit inputs;
-      src = ./.;
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["aarch64-darwin" "x86_64-linux"];
 
-      snowfall = {
-        root = ./.;
-        namespace = "flak";
-        meta = {
-          name = "flak";
-          title = "flak";
+      perSystem = {system, ...}: let
+        # The plugin packages are lifted into `pkgs.vimPlugins` by
+        # overlays/vimPlugins, which the configuration modules read from.
+        basePkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
-      };
-    };
-  in
-    lib.mkFlake {
-      inherit inputs;
-      src = ./.;
 
-      alias = {
-        packages = {
-          default = "inceptionvim";
+        flakPkgs = import ./nix/packages.nix {
+          inherit inputs system;
+          pkgs = basePkgs;
         };
-      };
 
-      package-namespace = "flak";
-      channels-config = {
-        allowUnfree = true;
-      };
-      outputs-builder = channels: {
-        formatter = channels.nixpkgs.alejandra;
+        pkgs = basePkgs.extend (import ./overlays/vimPlugins {
+          flak = flakPkgs;
+        });
+      in {
+        _module.args.pkgs = pkgs;
+
+        # Built against the overlaid pkgs, so the configuration modules find
+        # the plugins under pkgs.vimPlugins.
+        packages.default = pkgs.callPackage ./packages/inceptionvim {
+          inherit inputs system;
+        };
+
+        # Snowfall discovered checks/ automatically; declared explicitly now.
+        checks.inceptionvim = import ./checks/inceptionvim {
+          inherit inputs system pkgs;
+          inherit (pkgs) lib;
+        };
+
+        formatter = pkgs.alejandra;
       };
     };
 }

@@ -9,7 +9,7 @@ inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
   inherit pkgs;
 
   module = {
-    imports = lib.snowfall.fs.get-non-default-nix-files-recursive ../../configuration;
+    imports = (import ../../nix/fs.nix {inherit lib;}).getNonDefaultNixFilesRecursive ../../configuration;
 
     config = {
       viAlias = true;
